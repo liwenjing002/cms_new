@@ -1,0 +1,51 @@
+<div id="page" style="height:500px">
+  <!-- Wrapper -->
+  <div class="wrapper">
+    <!-- Left column/section -->
+    <section class="column width6 first">
+
+      <h3>编辑网站信息</h3>
+      <% if @web_info.errors.any? %>
+        <% @web_info.errors.full_messages.each do |msg| %>
+          <div class="box box-info"><%=msg%></div>
+        <% end %>
+      <%end%>
+
+      <%= simple_form_for(@web_info) do |f| %>
+        <fieldset>
+          <legend>编辑网站信息</legend>
+
+          <p>
+            <label class="required" for="name">网站名称</label><br/>
+            <%= f.text_field :name,:class=>"half" %>
+          </p>
+
+          <p>
+            <label class="required" for="name">网站链接</label><br/>
+            <%= f.text_field :url,:class=>"half" %>
+          </p>
+             <p>
+            <label class="required" for="name">网站qq</label><br/>
+            <%= f.text_field :qq,:class=>"half" %>
+          </p>
+             <p>
+            <label class="required" for="name">网站旺旺</label><br/>
+            <%= f.text_field :wanwan,:class=>"half" %>
+          </p>
+             <p>
+            <label class="required" for="name">网站微博</label><br/>
+            <%= f.text_field :weibo,:class=>"half" %>
+          </p>
+          <p class="box"><input type="submit" class="btn btn-green big" value="提交"/>
+            or
+            <input type="reset" class="btn" value="重置"/>
+ 
+          </p>
+
+        </fieldset>
+
+      <%end%>
+  </div>
+
+  <!-- End of Wrapper -->
+</div>

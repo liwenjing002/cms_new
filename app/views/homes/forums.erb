@@ -1,0 +1,9 @@
+<%if @forum.code =='about'%>
+<%=  render "common/default_about"%>
+<%elsif @forum.code =='kecheng'%>
+<%=  render "common/default_kecheng"%>
+<%elsif @forum.code =='qingshang'%>
+<%=  render "common/default_qingshang"%>
+<%else%>
+<%=  render "common/default_forum"%>
+<%end%>

@@ -1,0 +1,369 @@
+     <%if alert%>
+       <script type="text/javascript">
+     alert(<%=alert%>)</script>
+       <%end%>
+           <%= javascript_include_tag 'jquery-1.4.2.min' %>
+             <!-- Wrapper -->     
+             <div id="page">
+
+               <div class="wrapper">
+                 <!-- Left column/section -->     
+                 <section class="column  first" style ="width:880px;">
+                   <h3>
+                     问卷：
+                     <%=@question.name%></h3>
+
+                     <table class="display stylized" id="example">
+                       <thead>
+                         <tr>
+                           <th style="width: 200px;">类别名称</th>
+                           <th style="width: 20px; ">分值</th>
+                           <th style="width: 200px; "></th>
+                           <th style="width: 250px; "></th>
+                           <th style="width: 50px; "></th>
+                           <th style="width: 50px; "></th>
+                           <th style="width: 50px; "></th>
+                         </tr>
+                       </thead>
+                       <tbody id ="tbody">
+
+                         <tr id = "0" class="gradeA odd" style="display:none">
+                           <td>
+                             <input class="show half" id="question_category_id" name="question_category[id]" size="30" type="text" tr="0" style= "display:none">     
+                             <input class="show half" id="question_category_name" name="question_category[name]" size="30" type="text" tr="0"></td>
+                           <td>
+
+                             <select class="show" id="question_category_number" name="question_category[number]" tr="1">
+                               <option value="20" >20</option>
+                               <option value="40">40</option>
+                             </select>
+                           </td>
+                           <td>
+                             <input  name ="submit_button" type="submit" class="show btn btn-green big submit_button" value="提交" tr="0" ></td>
+                           <td>
+                             <input   name ="edit_button" type="submit" class="show btn btn-green big edit_button" value="编辑" tr="0"></td>
+                           <td>
+                             <input  style= "display:none" name ="del_button" type="submit" class="show btn btn-green big del_button" value="删除" tr="0"></td>
+                           <td>
+                             <input  name ="add_button"  style= "display:none" type="submit" class="show btn btn-green big add_button" value="添加问题" tr="0"></td>
+                         </tr>
+
+                         <!-- 添加问题-->     
+                         <tr id= "q0" class="gradeA odd question" style="display:none">
+                           <td></td>
+                           <td></td>
+                           <td>
+                             <input class="show half" id="question_category_id" name="question_category[id]" size="30" type="text" tr= "00" style="display:none">     
+                             <input class="show half" id="question_detail_id" name="question_detail[id]" size="30" type="text" tr= "00" style="display:none">     
+                             题目：
+                             <textarea  rows="6"  id="question_detail_name" name="question_detail[name]" size="30" tr= "00"></textarea>
+                           </td>
+                           <td>
+                             积分正向：
+                             <input class="show half" id="count" name="count" size="30" type="checkbox" tr= "00"></br>
+                           a:
+                           <input  name ="a_secect" type="text"  value="" tr= "00" ></br>
+                         b:
+                         <input  name ="b_secect" type="text"  value="" tr= "00" ></br>
+                       c:
+                       <input  name ="c_secect" type="text" value="" tr= "00" ></br>
+                     d:
+                     <input  name ="d_secect" type="text"  value="" tr= "00" ></br>
+                    e:<input  name ="e_secect" type="text"  value="" tr= "00" ></td>
+                   <td>
+                     <input  name ="submit_button" type="submit" class="show btn btn-green big submit_button_question" value="提交" tr="00" ></td>
+                   <td>
+                     <input  style= "display:none" name ="edit_button" type="submit" class="show btn btn-green big edit_button_question" value="编辑" ques= "00"></td>
+                   <td>
+                     <input  name ="del_button"  style= "display:none" type="submit" class="show btn btn-green big del_button_question" value="删除" ques= "00"></td>
+                 </tr>
+
+                 <%i =0%>
+                   <%@question.question_categories.each do |a| %>
+                     <%i =i+1%>
+                       <!--分类结束 -->     
+                       <tr id = "<%=i%>" class="gradeA odd" >
+                         <div id="form_div">
+
+                           <td>
+                             <input class="show half" id="question_category_id" name="question_category[id]" size="30" type="text" tr="<%=i%>" style="display:none" value="<%=a.id%>">
+                               <input class="show half" id="question_category_name" name="question_category[name]" size="30" type="text" tr="<%=i%>"  value="<%=a.name%>"></td>
+                               <td>
+                                 <select class="show" id="question_category_number" name="question_category[number]" tr="<%=i%>
+                                   ">
+                                   <option value="20" <%if a.number==20%> <%end%>>20</option>
+                                     <option value="40" <%if a.number==40%>
+                                       selected
+                                       <%end%>>40</option>
+                                     </select>
+                                   </td>
+                                   <td>
+                                     <input  name ="submit_button" <%if a.id !=nil%>     
+                                     style= "display:none"
+                                     <%end%>
+                                       type="submit" class="show btn btn-green big submit_button" value="提交" tr="<%=i%>"></td>
+                                       <td>
+                                         <input  name ="edit_button" <%if a.id ==nil%>     
+                                         style= "display:none"
+                                         <%end%>
+                                           type="submit" class="show btn btn-green big edit_button" value="编辑" tr="<%=i%>"></td>
+                                           <td>
+                                             <input  name ="del_button"  <%if a.id ==nil%>     
+                                             style= "display:none"
+                                             <%end%>
+                                               type="submit" class="show btn btn-green big del_button" value="删除" tr="<%=i%>"></td>
+
+                                               <td>
+
+                                                 <input  name ="add_button" <%if a.id ==nil%>     
+                                                 style= "display:none"
+                                                 <%end%>
+                                                   type="submit" class="show btn btn-green big add_button" value="添加问题" tr="<%=i%>"></td>
+
+                                                 </div>
+                                               </tr>
+
+                                               <!--分类结束 -->     
+
+                                               <!-- 题目开始-->     
+                                               <%a.question_details.each do |b| %>
+                                                 <tr id= "q<%=b.id%>" class="gradeA odd question" style="display:none1">
+                                                   <td></td>
+                                                   <td></td>
+                                                   <td><div>
+                                                     <input class="show half" id="question_category_id" name="question_category[id]" size="30" type="text" tr= "q<%=b.id%>" value= "<%=a.id%>" style="display:none">
+                                                     <input class="show half" id="question_detail_id" name="question_detail[id]" size="30" type="text" tr= "q<%=b.id%>" style="display:none" value= "<%=b.id%>">     
+                                                     题目：
+                                                     <textarea  rows="6"  id="question_detail_name" name="question_detail[name]" size="30" tr= "q<%=b.id%>"><%=b.name%></textarea></div>
+                                                   </td>
+                                                   <td><div >积分正向：</br>
+                                                     <input <%if b.count==true %> checked="checked" <%end%> class="show half" id="count" name="count" size="30" type="checkbox" tr= "q<%=b.id%>"></br>
+                                                   a:
+                                                   <input  name ="a_secect" type="text"  value="<%=b.a_secect%>" tr= "q<%=b.id%>" ></br>
+                                                 b:
+                                                 <input  name ="b_secect" type="text"  value="<%=b.b_secect%>" tr= "q<%=b.id%>" ></br>
+                                               c:
+                                               <input  name ="c_secect" type="text" value="<%=b.c_secect%>" tr= "q<%=b.id%>" ></br>
+                                             d:
+                                             <input  name ="d_secect" type="text"  value="<%=b.d_secect%>" tr= "q<%=b.id%>" >
+                                             </br>
+                    e:<input  name ="e_secect" type="text"  value="<%=b.e_secect%>" tr= "q<%=b.id%>" ></div>
+                                           </td>
+                                           <td>
+                                             <input style= "display:none" name ="submit_button" type="submit" class="show btn btn-green big submit_button_question" value="提交" tr="q<%=b.id%>" ></td>
+                                           <td>
+                                             <input   name ="edit_button" type="submit" class="show btn btn-green big edit_button_question" value="编辑" tr= "q<%=b.id%>"></td>
+                                           <td>
+                                             <input  name ="del_button" type="submit" class="show btn btn-green big del_button_question" value="删除" tr= "q<%=b.id%>"></td>
+                                         </tr>
+
+                                         <%end%>
+                                           <!-- 题目结束-->     
+
+                                           <%end%>
+
+                                             <tr id = "<%=@question.question_categories.length+1%>" class="gradeA odd" >
+                                               <div id="form_div">
+
+                                                 <td>
+                                                   <input class="show half" id="question_category_id" name="question_category[id]" size="30" style="display:none" tr="<%=@question.question_categories.length+1%>" style="display:none">
+                                                   <input class="show half" id="question_category_name" name="question_category[name]" size="30" type="text" tr="<%=@question.question_categories.length+1%>"></td>
+                                                 <td>
+
+                                                   <select class="show" id="question_category_number" name="question_category[number]" tr="<%=@question.question_categories.length+1%>
+                                                     ">
+                                                     <option value="20">20</option>
+                                                     <option value="40">40</option>
+                                                     <td>
+                                                       <input  name ="submit_button" type="submit" class="show btn btn-green big submit_button" value="提交" tr="<%=@question.question_categories.length+1%>"></td>
+                                                     <td>
+                                                       <input  style= "display:none" name ="edit_button" type="submit" class="show btn btn-green big edit_button" value="编辑" tr="<%=@question.question_categories.length+1%>"></td>
+
+                                                     <td>
+                                                       <input  style= "display:none" name ="del_button" type="submit" class="show btn btn-green big del_button" value="删除" tr="<%=@question.question_categories.length+1%>"></td>
+                                                     <td>
+                                                       <input  name ="add_button"  style= "display:none" type="submit" class="show btn btn-green big add_button" value="添加问题" tr="<%=@question.question_categories.length+1%>"></td>
+
+                                                   </div>
+                                                 </tr>
+                                               </tbody>
+                                             </table>
+                                             <p class="box"><input type="button"  onclick="save()" class="btn btn-green big" value="提交">  <a href="/questions" class="btn btn-green big" style="vertical-align: middle;margin-bottom: 0;">返回</a></p>
+                                             <div class="clear">&nbsp;</div>
+                                           </section>
+                                           <!-- End of Left column/section -->     
+
+                                           <!-- End of Right column/section --> </div>
+                                         <!-- End of Wrapper --> </div>
+                                     </div>
+                                     <script type="text/javascript">
+                                     function save(){
+                                       jQuery.ajax({                   
+                                      type: "GET",                                    
+                                      url: "/questions/save_question?id=<%=@question.id%>"
+                              
+                                  });
+
+                                     }
+
+
+
+         $(".submit_button").live("click",function(){
+          question_id = "<%=@question.id%>"
+      tr_num = $(this).attr("tr");
+      name = $("input[name='question_category[name]'][tr="+tr_num+"]").attr("value")
+      number = $("select[name='question_category[number]'][tr="+tr_num+"]").attr("value")
+      if(name =="" ){
+        alert("类别名称不为空")
+        return false;
+
+      }
+
+      data1 = "question_category[question_id]="+question_id+"&question_category[name]="+name+"&tr_id="+tr_num+"&question_category[number]="+number;
+           jQuery.ajax({                   
+                    type: "POST",                                   
+                    url: "/question_categories",
+                      data: data1
+                })
+
+
+})
+
+  $(".edit_button").live("click",function(){
+      tr_num = $(this).attr("tr");
+      name = $("input[name='question_category[name]'][tr="+tr_num+"]").attr("value")
+      number = $("select[name='question_category[number]'][tr="+tr_num+"]").attr("value")
+      id =  $("input[name='question_category[id]'][tr="+tr_num+"]").attr("value")
+      if(name =="" ){
+        alert("类别名称不为空")
+        return false;
+
+      }
+      data1 = "id="+id+"&question_category[id]"+id+"&question_category[name]="+name+"&tr_id="+tr_num+"&question_category[number]="+number;
+
+           jQuery.ajax({                   
+                    type: "PUT",                                   
+                    url: "/question_categories/"+id,
+                      data: data1
+                })
+
+
+})
+
+
+  $(".del_button").live("click",function(){
+     tr_num = $(this).attr("tr");
+      id =  $("input[name='question_category[id]'][tr="+tr_num+"]").attr("value")
+           jQuery.ajax({                   
+                    type: "DELETE",                                   
+                    url: "/question_categories/"+id,
+                    data: "tr="+tr_num
+                })
+})
+
+
+$(".add_button").live("click",function(){
+  tr_father = $(this).attr("tr");
+   tr_num = $(".question").size();
+
+   c_id = $(this).attr("category_id")
+
+  var clonedtr = $("#q0").clone();
+  clonedtr.show();
+   clonedtr.attr("id","p"+ tr_num)
+    clonedtr.find("input[name='question_category[id]']").attr("value",c_id)
+   $("#"+tr_father).after(clonedtr);
+ clonedtr.find("input").each( function(index, element)
+                           {
+                              $(element).attr("tr","p"+ tr_num)
+                              $(element).attr("category_id",c_id)
+                           }
+
+                          );
+  clonedtr.find("textarea").attr("tr","p"+ tr_num)    
+
+})
+
+
+$(".submit_button_question").live("click",function(){
+
+tr_num2 = $(this).attr("tr")
+c2_id =  $(this).attr("category_id")
+name = $("textarea[name='question_detail[name]'][tr="+tr_num2+"]").val()
+
+ a =$("input[name='a_secect'][tr="+tr_num2+"]").attr("value")
+ b =$("input[name='b_secect'][tr="+tr_num2+"]").attr("value")
+ c =$("input[name='c_secect'][tr="+tr_num2+"]").attr("value")
+ d =$("input[name='d_secect'][tr="+tr_num2+"]").attr("value")
+
+ e =$("input[name='e_secect'][tr="+tr_num2+"]").attr("value")
+ count_boolean =$("input[name='count'][tr="+tr_num2+"]").attr("checked")
+ if(count_boolean==true){
+count_boolean =1
+ }else{
+count_boolean=0
+ }
+res = "&question_detail[a_secect]="+a +"&question_detail[b_secect]="+b+"&question_detail[c_secect]="+c+"&question_detail[d_secect]="+d+"&question_detail[e_secect]="+e+"&question_detail[count]="+count_boolean;
+
+  if(name =="" ){
+        alert("题目名称不为空")
+        return false;
+
+      }
+      data1 = "question_detail[question_category_id]="+c2_id+"&question_detail[name]="+name+"&tr_id="+tr_num2+res;
+           jQuery.ajax({                   
+                    type: "POST",                                   
+                    url: "/question_details",
+                      data: data1
+                })
+
+})
+
+
+
+$(".edit_button_question").live("click",function(){
+
+tr_num3 = $(this).attr("tr");
+question_category_id2 =  $("input[name='question_category[id]'][tr="+tr_num3+"]").attr("value")
+id2 = $("input[name='question_detail[id]'][tr="+tr_num3+"]").attr("value")
+name2 = $("textarea[name='question_detail[name]'][tr="+tr_num3+"]").val()
+ a =$("input[name='a_secect'][tr="+tr_num3+"]").attr("value")
+ b =$("input[name='b_secect'][tr="+tr_num3+"]").attr("value")
+ c =$("input[name='c_secect'][tr="+tr_num3+"]").attr("value")
+ d =$("input[name='d_secect'][tr="+tr_num3+"]").attr("value")
+ e =$("input[name='e_secect'][tr="+tr_num3+"]").attr("value")
+ count_boolean2 =$("input[name='count'][tr="+tr_num3+"]").attr("checked")
+  if(count_boolean2=="on"){
+count_boolean2 =1
+ }else{
+count_boolean2=0
+ }
+res = "&question_detail[a_secect]="+a +"&question_detail[b_secect]="+b+"&question_detail[c_secect]="+c+"&question_detail[d_secect]="+d+"&question_detail[e_secect]="+e+"&question_detail[count]="+count_boolean2;
+  if(name2 =="" ){
+        alert("题目名称不为空")
+        return false;
+
+      }
+      data1 = "question_detail[id]="+id2+"&question_detail[question_category_id]="+question_category_id2+"&question_detail[name]="+name2+"&tr_id="+tr_num3+res;
+           jQuery.ajax({                   
+                    type: "PUT",                                   
+                    url: "/question_details/"+id2,
+                      data: data1
+                })
+
+})
+
+
+
+  $(".del_button_question").live("click",function(){
+     tr_num = $(this).attr("tr");
+      id =  $("input[name='question_detail[id]'][tr="+tr_num+"]").attr("value")
+           jQuery.ajax({                   
+                    type: "DELETE",                                   
+                    url: "/question_details/"+id,
+                    data: "tr="+tr_num
+                })
+})
+
+
+     </script>

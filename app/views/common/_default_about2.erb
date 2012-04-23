@@ -1,0 +1,128 @@
+
+<table width="1200" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+   <td><img src="/images/spacer.gif" width="101" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="113" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="33" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="63" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="33" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="32" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="32" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="65" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="72" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="30" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="129" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="44" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="55" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="38" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="9" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="23" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="44" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="16" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="71" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="30" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="37" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="15" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="18" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="97" height="1" border="0" alt=""></td>
+   <td><img src="/images/spacer.gif" width="1" height="1" border="0" alt=""></td>
+  </tr>
+<tr>
+   <td><img name="about_r6_c1" src="/images/about_r6_c1.jpg" width="101" height="41" border="0" id="about_r6_c1" alt="" /></td>
+   <td colspan="3"><a href = "/homes/forums/<%=Forum.find_by_code("xueyuan").id%>"><img name="about_r6_c2" src="/images/about_r6_c2.jpg" width="209" height="41" border="0" id="about_r6_c2" alt="" /></a></td>
+   <td colspan="4"><img name="about_r6_c5" src="/images/about_r6_c5.jpg" width="162" height="41" border="0" id="about_r6_c5" alt="" /></td>
+   <td colspan="9"><img name="about_r6_c9" src="/images/about_r6_c9.jpg" width="444" height="41" border="0" id="about_r6_c9" alt="" /></td>
+   <td colspan="6"><img name="about_r6_c18" src="/images/about_r6_c18.jpg" width="187" height="41" border="0" id="about_r6_c18" alt="" /></td>
+   <td><img name="about_r6_c24" src="/images/about_r6_c24.jpg" width="97" height="41" border="0" id="about_r6_c24" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="41" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td rowspan="2"><img name="about_r7_c1" src="/images/about_r7_c1.jpg" width="101" height="44" border="0" id="about_r7_c1" alt="" /></td>
+   <td rowspan="2" colspan="3"><a href = "/homes/forums/<%=Forum.find_by_code("xinling").id%>"><img src="/images/about_r7_c2.jpg" alt="" name="about_r7_c2" width="209" height="44" border="0" usemap="#about_r7_c2Map" id="about_r7_c2" /></a></td>
+   <td rowspan="2"><img name="about_r7_c5" src="/images/about_r7_c5.jpg" width="33" height="44" border="0" id="about_r7_c5" alt="" /></td>
+   <td colspan="12"><img name="about_r7_c6" src="/images/about_r7_c6.jpg" width="573" height="23" border="0" id="about_r7_c6" alt="" /></td>
+   <td colspan="6"><img name="about_r7_c18" src="/images/about_r7_c18.jpg" width="187" height="23" border="0" id="about_r7_c18" alt="" /></td>
+   <td><img name="about_r7_c24" src="/images/about_r7_c24.jpg" width="97" height="23" border="0" id="about_r7_c24" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="23" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td colspan="16" rowspan="9">
+    <%i = 0 %>
+    <% @articles.each do |article|%>
+    <%i +=1%>
+    <p><span class="biaoti1<%=i%>"><%=i%>.<%=article.title%></span><br />
+     <span class="zw"><%=raw article.context%></span>
+     </p>
+     <%end%>
+  </td>
+   <td colspan="2"><img name="about_r8_c22" src="/images/about_r8_c22.jpg" width="33" height="21" border="0" id="about_r8_c22" alt="" /></td>
+   <td rowspan="6"><img name="about_r8_c24" src="/images/about_r8_c24.jpg" width="97" height="237" border="0" id="about_r8_c24" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="21" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td><img name="about_r9_c1" src="/images/about_r9_c1.jpg" width="101" height="40" border="0" id="about_r9_c1" alt="" /></td>
+   <td colspan="3"><a href = "/homes/forums/<%=Forum.find_by_code("huihua").id%>"><img src="/images/about_r9_c2.jpg" alt="" name="about_r9_c2" width="209" height="40" border="0" usemap="#about_r9_c2Map" id="about_r9_c2" /></a></td>
+   <td><img name="about_r9_c5" src="/images/about_r9_c5.jpg" width="33" height="40" border="0" id="about_r9_c5" alt="" /></td>
+   <td colspan="2"><img name="about_r9_c22" src="/images/about_r9_c22.jpg" width="33" height="40" border="0" id="about_r9_c22" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="40" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td><img name="about_r10_c1" src="/images/about_r10_c1.jpg" width="101" height="39" border="0" id="about_r10_c1" alt="" /></td>
+   <td colspan="3"><a href = "/homes/forums/<%=Forum.find_by_code("yule").id%>"><img src="/images/about_r10_c2.jpg" alt="" name="about_r10_c2" width="209" height="39" border="0" usemap="#about_r10_c2Map" id="about_r10_c2" /></a></td>
+   <td><img name="about_r10_c5" src="/images/about_r10_c5.jpg" width="33" height="39" border="0" id="about_r10_c5" alt="" /></td>
+   <td colspan="2"><img name="about_r10_c22" src="/images/about_r10_c22.jpg" width="33" height="39" border="0" id="about_r10_c22" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="39" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td><img name="about_r11_c1" src="/images/about_r11_c1.jpg" width="101" height="45" border="0" id="about_r11_c1" alt="" /></td>
+   <td colspan="3"><a href = "/homes/forums/<%=Forum.find_by_code("gushi").id%>"><img src="/images/about_r11_c2.jpg" alt="" name="about_r11_c2" width="209" height="45" border="0" usemap="#about_r11_c2Map" id="about_r11_c2" /></a></td>
+   <td><img name="about_r11_c5" src="/images/about_r11_c5.jpg" width="33" height="45" border="0" id="about_r11_c5" alt="" /></td>
+   <td colspan="2"><img name="about_r11_c22" src="/images/about_r11_c22.jpg" width="33" height="45" border="0" id="about_r11_c22" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="45" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td><img name="about_r12_c1" src="/images/about_r12_c1.jpg" width="101" height="9" border="0" id="about_r12_c1" alt="" /></td>
+   <td colspan="3"><img name="about_r12_c2" src="/images/about_r12_c2.jpg" width="209" height="9" border="0" id="about_r12_c2" alt="" /></td>
+   <td><img name="about_r12_c5" src="/images/about_r12_c5.jpg" width="33" height="9" border="0" id="about_r12_c5" alt="" /></td>
+   <td colspan="2"><img name="about_r12_c22" src="/images/about_r12_c22.jpg" width="33" height="9" border="0" id="about_r12_c22" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="9" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td><img name="about_r13_c1" src="/images/about_r13_c1.jpg" width="101" height="83" border="0" id="about_r13_c1" alt="" /></td>
+   <td colspan="3"><img name="about_r13_c2" src="/images/about_r13_c2.jpg" width="209" height="83" border="0" id="about_r13_c2" alt="" /></td>
+   <td><img name="about_r13_c5" src="/images/about_r13_c5.jpg" width="33" height="83" border="0" id="about_r13_c5" alt="" /></td>
+   <td colspan="2"><img name="about_r13_c22" src="/images/about_r13_c22.jpg" width="33" height="83" border="0" id="about_r13_c22" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="83" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td rowspan="4">&nbsp;</td>
+   <td rowspan="4" colspan="3">&nbsp;</td>
+   <td rowspan="4"><img name="about_r14_c5" src="/images/about_r14_c5.jpg" width="33" height="237" border="0" id="about_r14_c5" alt="" /></td>
+   <td colspan="2"><img name="about_r14_c22" src="/images/about_r14_c22.jpg" width="33" height="32" border="0" id="about_r14_c22" alt="" /></td>
+   <td rowspan="3"><img name="about_r14_c24" src="/images/about_r14_c24.jpg" width="97" height="208" border="0" id="about_r14_c24" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="32" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td colspan="2"><img name="about_r15_c22" src="/images/about_r15_c22.jpg" width="33" height="75" border="0" id="about_r15_c22" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="75" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td colspan="2"><img name="about_r16_c22" src="/images/about_r16_c22.jpg" width="33" height="101" border="0" id="about_r16_c22" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="101" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td colspan="16"><img name="about_r17_c6" src="/images/about_r17_c6.jpg" width="727" height="29" border="0" id="about_r17_c6" alt="" /></td>
+   <td colspan="2"><img name="about_r17_c22" src="/images/about_r17_c22.jpg" width="33" height="29" border="0" id="about_r17_c22" alt="" /></td>
+   <td><img name="about_r17_c24" src="/images/about_r17_c24.jpg" width="97" height="29" border="0" id="about_r17_c24" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="29" border="0" alt="" /></td>
+  </tr>
+  <tr>
+   <td><img name="about_r18_c1" src="/images/about_r18_c1.jpg" width="101" height="53" border="0" id="about_r18_c1" alt="" /></td>
+   <td colspan="3"><img name="about_r18_c2" src="/images/about_r18_c2.jpg" width="209" height="53" border="0" id="about_r18_c2" alt="" /></td>
+   <td><img name="about_r18_c5" src="/images/about_r18_c5.jpg" width="33" height="53" border="0" id="about_r18_c5" alt="" /></td>
+   <td colspan="16"><img name="about_r18_c6" src="/images/about_r18_c6.jpg" width="727" height="53" border="0" id="about_r18_c6" alt="" /></td>
+   <td colspan="2"><img name="about_r18_c22" src="/images/about_r18_c22.jpg" width="33" height="53" border="0" id="about_r18_c22" alt="" /></td>
+   <td><img name="about_r18_c24" src="/images/about_r18_c24.jpg" width="97" height="53" border="0" id="about_r18_c24" alt="" /></td>
+   <td><img src="/images/spacer.gif" width="1" height="53" border="0" alt="" /></td>
+
+</table>

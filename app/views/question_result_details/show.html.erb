@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Question detail:</b>
+  <%= @question_result_detail.question_detail_id %>
+</p>
+
+<p>
+  <b>Question result:</b>
+  <%= @question_result_detail.question_result_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_result_detail_path(@question_result_detail) %> |
+<%= link_to 'Back', question_result_details_path %>

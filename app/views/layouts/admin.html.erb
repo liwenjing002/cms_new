@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+  <head>
+<title>小船长cms后台管理</title>
+
+<link rel="shortcut icon" type="image/png" href="/images/favicons/favicon.png"/>
+<link rel="icon" type="image/png" href="/images/favicons/favicon.png"/>
+<link rel="apple-touch-icon" href="/images/favicons/apple.png"/>
+    <link rel="stylesheet" href="/stylesheets/admin.css" type="text/css" />
+
+    <link rel="stylesheet" href="/stylesheets/custom.css" type="text/css" />
+    <%= javascript_include_tag 'swfobject' %>
+	<%= javascript_include_tag 'jquery-1.4.2.min' %>
+	<%= javascript_include_tag 'jquery.ui.core.min' %>
+	<%= javascript_include_tag 'jquery.ui.widget.min' %>
+	<%= javascript_include_tag 'jquery.ui.tabs.min' %>
+	<%= javascript_include_tag 'jquery.tipTip.min.js' %>
+	<%= javascript_include_tag 'jquery.superfish.min' %>
+	<%= javascript_include_tag 'jquery.supersubs.min' %>
+	<%= javascript_include_tag 'jquery.validate_pack' %>
+	<%= javascript_include_tag 'jquery.nyroModal.pack' %>
+	<%#=kindeditor_javacript_include_tag%>
+	<%= javascript_include_tag 'kindeditor/kindeditor' %>
+	<%= javascript_include_tag 'kindeditor/kindeditor_config' %>
+	<%= javascript_include_tag 'kindeditor/lang/zh_CN' %>
+
+   
+
+</head>
+  
+  
+<%= render(:partial => "admin/top") %>
+<%= yield %>
+<%= render(:partial => "admin/bottom") %>
+</html>

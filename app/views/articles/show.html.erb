@@ -1,0 +1,62 @@
+<div id="page" style="min-height:500px">
+  <!-- Wrapper -->
+  <div class="wrapper">
+    <!-- Left column/section -->
+    <section class="column width6 first">					
+
+      <h3>查看文章</h3>
+
+
+        <fieldset>
+          <legend>查看文章</legend>
+
+          <p>
+            <label class="required">标题</label><br>
+             <%= @article.title %>
+          </p>
+
+                    <p>
+            <label class="required">作者</label><br>
+             <%= @article.author%>
+          </p>
+                    <p>
+            <label class="required">发布人</label><br>
+             <%= @article.user.name  if @article.user%>
+          </p>
+
+            <p>
+            <label class="required">封面</label><br>
+               <%#= image_tag( @article.picture.url(:thumb), :alt => @article.title) if @article.picture %>
+                <%= image_tag( @article.picture1, :alt => @article.title,:width=>100) if @article.picture1 %>
+          </p>
+
+          <p>
+            <label class="required" >正文</label><br>
+             <%= raw @article.context%>
+          </p>
+		  
+
+		  <div class="clearfix leading">
+								<div class="column width3 first">
+				  <p>
+            <label class="required" >一级版块</label><br>
+             <%= @article.first_forum.name if@article.first_forum%>
+          </p>
+								</div>
+				
+								<div class="column width3" id ="next_select">
+            <label class="required" >二级版块</label><br>
+             <%= @article.forum.name if @article.forum%>
+          </p>
+								</div>
+							</div>		
+
+
+            </fieldset>
+
+<%= link_to '编辑', edit_article_path(@article) %> |
+<%= link_to '返回', articles_path %>
+<%= link_to '预览', "/homes/articles/#{@article.id}",:target=>"_blank" %> |
+          </div>
+          <!-- End of Wrapper -->
+          </div>

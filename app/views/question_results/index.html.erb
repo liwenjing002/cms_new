@@ -1,0 +1,25 @@
+<h1>Listing question_results</h1>
+
+<table>
+  <tr>
+    <th>Question base</th>
+    <th>Question</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @question_results.each do |question_result| %>
+  <tr>
+    <td><%= question_result.question_base_id %></td>
+    <td><%= question_result.question_id %></td>
+    <td><%= link_to 'Show', question_result %></td>
+    <td><%= link_to 'Edit', edit_question_result_path(question_result) %></td>
+    <td><%= link_to 'Destroy', question_result, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Question result', new_question_result_path %>

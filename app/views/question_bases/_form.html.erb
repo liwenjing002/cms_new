@@ -1,0 +1,76 @@
+<div id="page" >
+  <!-- Wrapper -->
+  <div class="wrapper">
+    <!-- Left column/section -->
+    <section class="column width6 first">
+
+      <h3>填写问卷基本信息</h3>
+      <% if @question_basis.errors.any? %>
+        <% @question_basis.errors.full_messages.each do |msg| %>
+          <div class="box box-info"><%=msg%></div>
+        <% end %>
+      <%end%>
+
+      <%= simple_form_for(@question_basis) do |f| %>
+        <fieldset>
+          <legend>填写问卷基本信息</legend>
+
+          <p> <input name="question_id" value="<%=@question_id%>" style="display:none">
+            <label class="required" for="name">幼儿姓名</label><br/>
+            <%= f.text_field :chind_name,:class=>"half" %>
+          </p>
+
+          <p>
+            <label class="required" for="name">幼儿性别</label><br/>
+            <%= f.text_field :child_sex,:class=>"half" %>
+          </p>
+
+          <p>
+            <label class="required" for="name">幼儿年龄</label><br/>
+            <%= f.text_field :child_age,:class=>"half" %>
+          </p>
+
+          <p>
+            <label class="required" for="name">监护人</label><br/>
+            <%= f.text_field :child_guardian,:class=>"half" %>
+          </p>
+
+          <p>
+            <label class="required" for="name">监护人照看时间</label><br/>
+            <%= f.text_field :child_time,:class=>"half" %>
+          </p>
+
+          <p>
+            <label class="required" for="name">幼儿兴趣爱好</label><br/>
+            <%= f.text_field :child_interest,:class=>"half" %>
+          </p>
+
+          <p>
+            <label class="required" for="name">幼儿评价</label><br/>
+            <%= f.text_field :child_evaluate,:class=>"half" %>
+          </p>
+
+          <p>
+            <label class="required" for="name">幼儿身体是否健康</label><br/>
+            <%= f.text_field :child_body_ok,:class=>"half" %>
+          </p>
+          <p>
+            <label class="required" for="name">幼儿身体情况</label><br/>
+            <%= f.text_field :child_body_msg,:class=>"half" %>
+          </p>
+          <p>
+            <label class="required" for="name">幼儿身体情况</label><br/>
+            <%= f.text_field :child_target,:class=>"half" %>
+          </p>
+          <p class="box"><input type="submit" class="btn btn-green big" value="下一步"/>
+            or
+            <input type="reset" class="btn" value="重置"/>
+          </p>
+
+        </fieldset>
+
+      <%end%>
+  </div>
+
+  <!-- End of Wrapper -->
+</div>

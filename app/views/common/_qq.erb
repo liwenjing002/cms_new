@@ -1,0 +1,70 @@
+<style type="text/css">
+
+
+IMG {
+  BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+UL {
+  PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+LI {
+  PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.QQbox {
+  Z-INDEX: 999; RIGHT: 0px; WIDTH: 128px; POSITION: absolute; HEIGHT: 250px
+}
+.QQbox .press {
+  RIGHT: 0px; WIDTH: 36px; CURSOR: pointer; POSITION: absolute; HEIGHT: 128px
+}
+.QQbox .Qlist {
+  BACKGROUND: url(/images/floatServiceBj.gif) no-repeat left center; LEFT: 0px; WIDTH: 131px; POSITION: absolute; HEIGHT: 250px
+}
+.QQbox .Qlist UL {
+  PADDING-RIGHT: 0px; PADDING-LEFT: 21px; PADDING-BOTTOM: 0px; PADDING-TOP: 43px
+}
+.QQbox .Qlist LI {
+  MARGIN-BOTTOM: 7px; LIST-STYLE-TYPE: none; HEIGHT: 26px
+}
+</style>
+
+<SCRIPT type=text/javascript>
+window.onload = window.onresize = window.onscroll = function ()
+{
+ var oBox = document.getElementById("divQQbox"); 
+ var oLine = document.getElementById("divOnline");
+ var oMenu = document.getElementById("divMenu");
+ var iScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+ setTimeout(function ()
+ {
+  clearInterval(oBox.timer);
+  var iTop = parseInt((document.documentElement.clientHeight - oBox.offsetHeight)/2) + iScrollTop;
+  oBox.timer = setInterval(function ()
+  {
+   var iSpeed = (iTop - oBox.offsetTop) / 8;
+   iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+   oBox.offsetTop == iTop ? clearInterval(oBox.timer) : (oBox.style.top = oBox.offsetTop + iSpeed + "px");
+  }, 30)
+ }, 100)
+ 
+ oBox.onmouseover = function ()
+ {
+  this.style.width = 131 + "px";
+  oLine.style.display = "block";
+  oMenu.style.display = "none";
+ };
+ oBox.onmouseout = function ()
+ {
+  this.style.width = '';
+  oLine.style.display = "none";
+  oMenu.style.display = "block";
+ };
+};
+</SCRIPT>
+<div class="QQbox" id="divQQbox" style="top: 155px; ">
+<div class="Qlist" id="divOnline" style="display: none; ">
+<ul>
+  <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=<%=@web_info.qq%>&amp;site=qq&amp;menu=yes" target="_blank"><img title="点击这里给我发消息" alt="点击这里给我发消息" src="/images/qq/pa(2).gif" border="0"></a> </li>
+ 
+  <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=<%=@web_info.qq%>&amp;site=qq&amp;menu=yes" target="_blank"><img title="点击这里给我发消息" alt="点击这里给我发消息" src="/images/qq/pa(2).gif" border="0"></a> </li>
+  <li><a href="http://amos.im.alisoft.com/msg.aw?v=2&amp;uid=<%=@web_info.wanwan%>&amp;site=cntaobao&amp;s=1&amp;charset=utf-8" target="_blank"><img alt="点击这里给我发消息" src="/images/qq/online.gif" border="0"></a> </li></ul></div>
+<div id="divMenu" style="display: block; "><img class="press" alt="在线客服" src="/images/qq/floatService.gif"></div></div>

@@ -1,0 +1,37 @@
+<%= form_for(@web_info) do |f| %>
+  <% if @web_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@web_info.errors.count, "error") %> prohibited this web_info from being saved:</h2>
+
+      <ul>
+      <% @web_info.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :qq %><br />
+    <%= f.text_field :qq %>
+  </div>
+  <div class="field">
+    <%= f.label :wanwan %><br />
+    <%= f.text_field :wanwan %>
+  </div>
+  <div class="field">
+    <%= f.label :weibo %><br />
+    <%= f.text_field :weibo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

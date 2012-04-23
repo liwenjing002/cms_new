@@ -1,0 +1,41 @@
+<h1>Listing question_bases</h1>
+
+<table>
+  <tr>
+    <th>Chind name</th>
+    <th>Child sex</th>
+    <th>Child age</th>
+    <th>Child guardian</th>
+    <th>Child time</th>
+    <th>Child interest</th>
+    <th>Child evaluate</th>
+    <th>Child body ok</th>
+    <th>Child body msg</th>
+    <th>Child target</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @question_bases.each do |question_basis| %>
+  <tr>
+    <td><%= question_basis.chind_name %></td>
+    <td><%= question_basis.child_sex %></td>
+    <td><%= question_basis.child_age %></td>
+    <td><%= question_basis.child_guardian %></td>
+    <td><%= question_basis.child_time %></td>
+    <td><%= question_basis.child_interest %></td>
+    <td><%= question_basis.child_evaluate %></td>
+    <td><%= question_basis.child_body_ok %></td>
+    <td><%= question_basis.child_body_msg %></td>
+    <td><%= question_basis.child_target %></td>
+    <td><%= link_to 'Show', question_basis %></td>
+    <td><%= link_to 'Edit', edit_question_basis_path(question_basis) %></td>
+    <td><%= link_to 'Destroy', question_basis, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Question base', new_question_basis_path %>

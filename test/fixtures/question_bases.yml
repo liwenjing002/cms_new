@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  chind_name: MyString
+  child_sex: false
+  child_age: 1
+  child_guardian: MyString
+  child_time: MyString
+  child_interest: MyString
+  child_evaluate: MyText
+  child_body_ok: false
+  child_body_msg: MyText
+  child_target: MyText
+
+two:
+  chind_name: MyString
+  child_sex: false
+  child_age: 1
+  child_guardian: MyString
+  child_time: MyString
+  child_interest: MyString
+  child_evaluate: MyText
+  child_body_ok: false
+  child_body_msg: MyText
+  child_target: MyText

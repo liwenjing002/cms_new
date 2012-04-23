@@ -1,0 +1,50 @@
+
+<div id="page" style="height:500px">
+  <%detail_num = @question_result.get_question_detail_ids.choice%>
+<%detail = QuestionDetail.find(detail_num)%>
+<%@question_result_detail = QuestionResultDetail.new%>
+<%@question_result_detail.question_detail_id = detail.id%>
+<%@question_result_detail.question_result_id = @question_result.id%>
+  <!-- Wrapper -->
+  <div class="wrapper">
+    <!-- Left column/section -->
+    <section class="column width6 first">
+
+      <h3><%=detail.name%></h3>
+
+     <%= simple_form_for(@question_result_detail) do |f| %>
+       <%= f.text_field :question_detail_id %>
+        <%= f.text_field :question_result_id %>
+        <fieldset>
+          <legend><%=@question_result.get_question_detail_ids.length%><%if @question_result.get_question_detail_ids.length==1%>当前为最后一题<%end%></legend>
+          <p>
+            <input type="radio" name="question_result_detail[answer_num]"
+          value="0" /><%=detail.a_secect%>
+          </p>
+          <p>
+            <input type="radio" name="question_result_detail[answer_num]"
+          value="1" /><%=detail.b_secect%>
+          </p>
+          <p>
+            <input type="radio" name="question_result_detail[answer_num]"
+          value="2" /><%=detail.c_secect%>
+          </p>
+          <p>
+            <input type="radio" name="question_result_detail[answer_num]"
+          value="3" /><%=detail.d_secect%>
+          </p>
+          <p>
+            <input type="radio" name="question_result_detail[answer_num]"
+          value="4" /><%=detail.e_secect%>
+          </p>
+          <p class="box"><input type="submit" class="btn btn-green big" value="下一题"/>
+ 
+          </p>
+
+        </fieldset>
+
+     <%end%>
+  </div>
+
+  <!-- End of Wrapper -->
+</div>

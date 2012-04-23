@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GamePackBrand>
+
+		<brand id='1'><brandtitle>魔方</brandtitle><thumb>/images/index/01.jpg</thumb><swf>/images/index/1.jpg</swf><link>http://www.baidu.com/</link><target>_blank</target></brand>
+	
+		<brand id='2'><brandtitle>飞扬</brandtitle><thumb>/images/index/02.jpg</thumb><swf>/images/index/2.jpg</swf><link>http://www.baidu.com/</link><target>_blank</target></brand>
+	
+		<brand id='3'><brandtitle>长城</brandtitle><thumb>/images/index/03.jpg</thumb><swf>/images/index/3.jpg</swf><link>http://www.baidu.com/</link><target>_blank</target></brand>
+	
+		<brand id='4'><brandtitle>红球</brandtitle><thumb>/images/index/04.jpg</thumb><swf>/images/index/4.jpg</swf><link>http://www.baidu.com/</link><target>_blank</target></brand>
+	
+		<brand id='5'><brandtitle>气球</brandtitle><thumb>/images/index/05.jpg</thumb><swf>/images/index/5.jpg</swf><link>http://www.baidu.com/</link><target>_blank</target></brand>
+	
+</GamePackBrand>

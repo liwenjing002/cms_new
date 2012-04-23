@@ -1,0 +1,46 @@
+﻿
+<div id="page" style="height:500px">
+  <!-- Wrapper -->
+  <div class="wrapper">
+    <!-- Left column/section -->
+    <section class="column width6 first">					
+
+      <h3>查看版块</h3>
+
+
+        <fieldset>
+          <legend>查看版块</legend>
+
+          <p>
+            <label class="required" for="name">版块名称</label><br>
+             <%= @forum.name %>
+          </p>
+
+           <p>
+            <label class="required" for="name">版块在首页显示的顺序</label><br/>
+             <%= @forum.order_num %>
+          </p>
+          <p>
+            <label class="required" for="email">上级版块</label><br/>
+             <%= @forum.father.name if @forum.father%>
+          </p>
+
+            <p>
+            <label class="required">大图</label><br>
+               <%#= image_tag( @article.picture.url(:thumb), :alt => @article.title) if @article.picture %>
+                <%= image_tag( @forum.picture1, :alt => @forum.name,:width=>100) if @forum.picture1  && @forum.picture1!=""%>
+          </p>
+                      <p>
+            <label class="required">小图</label><br>
+               <%#= image_tag( @article.picture.url(:thumb), :alt => @article.title) if @article.picture %>
+                <%= image_tag( @forum.picture2, :alt => @forum.name,:width=>100) if @forum.picture2 && @forum.picture2!=""%>
+          </p>
+            </fieldset>
+
+
+	<%= link_to '编辑', edit_forum_path(@forum) %> |
+	<%= link_to '返回', forums_path %>
+          </div>
+          <!-- End of Wrapper -->
+          </div>
+

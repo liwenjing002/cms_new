@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @web_info.name %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @web_info.url %>
+</p>
+
+<p>
+  <b>Qq:</b>
+  <%= @web_info.qq %>
+</p>
+
+<p>
+  <b>Wanwan:</b>
+  <%= @web_info.wanwan %>
+</p>
+
+<p>
+  <b>Weibo:</b>
+  <%= @web_info.weibo %>
+</p>
+
+
+<%= link_to 'Edit', edit_web_info_path(@web_info) %> |
+<%= link_to 'Back', web_infos_path %>

@@ -1,0 +1,108 @@
+<%#= javascript_include_tag :ckeditor %>
+<%= javascript_include_tag "prototype" %>﻿
+    <script>
+      KindEditor.ready(function(K) {
+        var editor = K.editor({
+          allowFileManager : true, 
+          uploadJson : '/kindeditor/upload',
+          fileManagerJson : '/kindeditor/images_list'
+        });
+        K('#image').click(function() {
+          editor.loadPlugin('image', function() {
+            editor.plugin.imageDialog({
+              imageUrl : K('#url').val(),
+              clickFn : function(url, title, width, height, border, align) {
+                K('#url').val(url);
+                editor.hideDialog();
+              }
+            });
+          });
+        });
+
+             K('#image2').click(function() {
+          editor.loadPlugin('image', function() {
+            editor.plugin.imageDialog({
+              imageUrl : K('#url2').val(),
+              clickFn : function(url, title, width, height, border, align) {
+                K('#url2').val(url);
+                editor.hideDialog();
+              }
+            });
+          });
+        });
+
+
+      });
+    </script>
+<div id="page" >
+  <!-- Wrapper -->
+  <div class="wrapper">
+    <!-- Left column/section -->
+    <section class="column width6 first">					
+
+      <h3>新增/编辑版块</h3>
+      <% if @forum.errors.any? %>
+        <% @forum.errors.full_messages.each do |msg| %>
+          <div class="box box-info"><%=msg%></div>
+        <% end %>
+      <%end%>
+
+      <%= simple_form_for(@forum) do |f| %>
+        <fieldset>
+          <legend>新增/编辑版块</legend>
+
+          <p>
+            <label class="required" for="name">版块名称</label><br>
+            <%= f.text_field :name,:class=>"half" %>
+          </p>
+          <p>
+           <%#if params[:action] == 'new'%>
+             <p>
+            <label class="required" for="name">版块代号</label><br>
+            <%= f.text_field :code,:class=>"half" %>
+          </p>
+          <%#end%>
+          <p>
+            <label class="required" for="name">版块顺序</label><br>
+            <%= f.input :order_num,:class=>"half" %>
+          </p>
+
+          <p>
+
+
+             <label for="productdesc">页面模版</label><br/>
+            <%= select( :forum,:page_temp_id, PageTemp.find(:all,:conditions=>["temp_type='栏目' and is_acticity=true"]).collect {|p| [ p.name, p.id ] }) %>
+          </p>
+          <p>
+        <label for="productdesc">父级板块</label><br/>
+
+          <%= select( :forum,:father_id, Forum.find(:all,:conditions=>"father_id is null").collect {|p| [ p.name, p.id ] }, { :include_blank => true }) %>
+          </p>
+
+        <p>
+          <%if @forum.picture1%>
+          <%= image_tag(@forum.picture1,:width=>100)%>
+          <%end%>
+        </p>
+        <p>
+          <input type="text" id="url" value="<%=@forum.picture1%>" name="forum[picture1]"/> <input type="button" id="image" value="选择版块大图" />
+        </p>
+         <p><%if @forum.picture2%>
+          <%= image_tag(@forum.picture2,:width=>100)%>
+          <%end%>
+        </p>
+        <p>
+          <input type="text" id="url2" value="<%=@forum.picture2%>" name="forum[picture2]"/> <input type="button" id="image2" value="选择版块小图" />
+        </p>
+          <p class="box"><input type="submit" class="btn btn-green big" value="提交"> or 
+            <input type="reset" class="btn" value="重置">
+            <%= link_to '返回', forums_path,:class=>"btn btn-green big" ,:style=>"vertical-align: middle;margin-bottom: 0;"%>
+          </p>
+
+            </fieldset>
+
+          <%end%>
+          </div>
+
+          <!-- End of Wrapper -->
+          </div>

@@ -1,0 +1,20 @@
+$("input[tr=<%=params[:tr_id]%>][name='question_category[id]']").attr("value","<%=@question_category.id%>");
+
+$("input[tr=<%=params[:tr_id]%>][name='submit_button']").hide();
+
+$("input[tr=<%=params[:tr_id]%>][name='edit_button']").attr("disabled",false)
+$("input[tr=<%=params[:tr_id]%>][name='add_button']").attr("disabled",false)
+$("input[tr=<%=params[:tr_id]%>][name='add_button']").attr("category_id","<%=@question_category.id%>")
+$("input[tr=<%=params[:tr_id]%>][name='edit_button']").attr("category_id","<%=@question_category.id%>")
+$("input[tr=<%=params[:tr_id]%>][name='edit_button']").show();
+$("input[tr=<%=params[:tr_id]%>][name='del_button']").show();
+$("input[tr=<%=params[:tr_id]%>][name='add_button']").show();
+  var clonedtr = $("#0").clone();
+  	clonedtr.show();	
+      clonedtr.attr("id","<%=params[:tr_id].to_i+1%>")
+        clonedtr.find("input").each( function(index, element)
+                           {
+                              $(element).attr("tr","<%=params[:tr_id].to_i+1%>")
+                           }
+                          );
+  $("#example").append(clonedtr);

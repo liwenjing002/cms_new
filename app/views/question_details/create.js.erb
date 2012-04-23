@@ -1,0 +1,11 @@
+// alert("<%=params[:tr_id]%>")
+$("input[tr=<%=params[:tr_id]%>][name='question_detail[id]']").attr("value","<%=@question_detail.id%>");
+// $("input[tr=<%=params[:tr_id]%>]").attr("disabled",true)
+// alert()
+$("input[tr=<%=params[:tr_id]%>][name='submit_button']").hide();
+
+$("input[tr=<%=params[:tr_id]%>][name='edit_button']").attr("disabled",false)
+$("input[tr=<%=params[:tr_id]%>][name='add_button']").attr("disabled",false)
+$("input[tr=<%=params[:tr_id]%>][name='edit_button']").show();
+$("input[tr=<%=params[:tr_id]%>][name='del_button']").show();
+

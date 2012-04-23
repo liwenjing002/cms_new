@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="http://open.weibo.com/wb">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>小船长</title>
+<script type="text/javascript">
+
+function addCookie()
+{
+ if (document.all)
+    {
+       window.external.addFavorite('http://<%=@web_info.url%>','<%=@web_info.name%>');
+    }
+    else if (window.sidebar)
+    {
+       window.sidebar.addPanel('<%=@web_info.name%>', 'http://<%=@web_info.url%>', "");
+ }
+}
+
+function setHomepage()
+{
+ if (document.all)
+    {
+        document.body.style.behavior='url(#default#homepage)';
+  document.body.setHomePage('http://<%=@web_info.url%>');
+ 
+    }
+    else if (window.sidebar)
+    {
+    if(window.netscape)
+    {
+         try
+   {  
+            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");  
+         }  
+         catch (e)  
+         {  
+    alert( "该操作被浏览器拒绝，如果想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值该为true" );  
+         }
+    } 
+    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components. interfaces.nsIPrefBranch);
+    prefs.setCharPref('browser.startup.homepage','http://www.carzymusic.com');
+ }
+}
+</script>
+<style type="text/css">td img {display: block;}body {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+
+
+ul.works {list-style:none;margin:0;padding:0;margin-left:20px;}
+
+ul.works li   {float:left;display: inline;margin:0 20px 20px 0;width:158px;height:150px;}
+
+ul.works li a {text-decoration: none;display:block;width:158px;height:150px;background:#fff;}
+
+ul.works li a img {width:150px;height:140px;border:0;}
+
+ul.works li a .imgthumb {position:relative;background:#EFEFEF;}
+
+ul.works li a .imgthumb span.thumb_shadow_right {position:relative;top:-3px;left:-3px;display:block;border:1px solid #BCBEC0;background:#FFF;padding:3px;text-align:center;}
+
+ul.works li a .intro   {display:none;margin-top:5px;height:80px;color:#9C9C91;line-height:1.5;}
+
+ul.works li a .intro p {border-bottom:1px solid #DEDEDD;overflow:hidden;}
+
+ul.works li a:hover {position:absolute;z-index:5;margin:-20px -6px -220px -30px;width:210px;background:#FFA342;cursor:pointer;}
+
+ul.works li a:hover .shadow {position:relative;display:block;padding:4px;}
+
+ul.works li a:hover .box    {border:1px solid #9FCF30;background:#fff;padding:15px 10px 15px 15px;}
+
+ul.works li a:hover .intro  {display:block;}
+
+</style>
+
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+<!--Fireworks 8 Dreamweaver 8 target.  Created Mon Mar 26 23:52:52 GMT+0800 2012-->
+<link href="/css/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body bgcolor="#ffffff">
+	<%if create_html_top%>
+		<%= raw create_html_top  %>
+	<%else%>
+		<%=  render "common/default_head"%>
+	<%end%>
+
+	<%if create_html_body%>
+		<%= raw create_html_body  %>
+	<%else%>
+		<%= yield%>
+	<%end%>
+
+	<%if create_html_foot%>
+		<%= raw create_html_foot  %>
+	<%else%>
+		<%=  render "common/default_foot"%>
+	<%end%>
+	<%=  render "common/qq"%>
+</body>
+

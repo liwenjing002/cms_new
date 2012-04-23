@@ -1,0 +1,113 @@
+<%#= javascript_include_tag :ckeditor %>
+
+<%= javascript_include_tag "prototype" %>﻿
+    <script>
+      KindEditor.ready(function(K) {
+        var editor = K.editor({
+          allowFileManager : true, 
+          uploadJson : '/kindeditor/upload',
+          fileManagerJson : '/kindeditor/images_list'
+        });
+        K('#image').click(function() {
+          editor.loadPlugin('image', function() {
+            editor.plugin.imageDialog({
+              imageUrl : K('#url').val(),
+              clickFn : function(url, title, width, height, border, align) {
+                K('#url').val(url);
+                editor.hideDialog();
+              }
+            });
+          });
+        });
+
+
+
+      });
+    </script>
+
+
+<div id="page" style="min-height: 800px">
+  <!-- Wrapper -->
+  <div class="wrapper">
+    <!-- Left column/section -->
+    <section class="column width6 first">					
+
+
+      <h3>新增文章</h3>
+      <% if @article.errors.any? %>
+        <% @article.errors.full_messages.each do |msg| %>
+          <div class = 'box box-info'>
+            <%=msg%>
+          </div>
+        <% end %>
+      <%end%>
+
+      <%= simple_form_for @article,:html=>{:multipart=>true} do |f| %>
+        <fieldset>
+          <legend>新增文章</legend>
+           <p>
+            <label class="required" for="title">小标题</label><br>
+            <%= f.text_field :small_title,:class=>"half" %>
+
+          </p>
+          <p>
+            <label class="required" for="title">标题</label><br>
+            <%= f.text_field :title,:class=>"half" %>
+
+          </p>
+
+                    <p>
+            <label  for="title">作者</label><br>
+            <%= f.text_field :author,:class=>"half" %>
+
+          </p>
+
+          <p>
+            <label for="productdesc">正文</label><br/>
+             <%= f.text_area :context,:id => "kindeditor" %>
+            <%#= f.cktext_area   :context,:input_html => {},:language=>"zh-cn"%>
+		
+
+          </p>
+		  
+		   <p>
+          <%if @article.picture1%>
+          <%= image_tag(@article.picture1,:width=>100)%>
+          <%end%>
+        </p>
+        <p>
+           <%= f.text_field :picture1,:class=>"half",:id=>"url" %> <input type="button" id="image" value="选择文章封面" />
+        </p>
+
+          <div class="clearfix leading">
+            <div class="column width3 first">
+              <p>
+                <label for="productcat">一级版块</label><br>
+                <%first_forum = Forum.find(:all,:conditions=>"father_id is null").collect {|p| [ p.name, p.id ] }%>
+
+                <%=  select  :article, :first_forum_id,first_forum,{:include_blank => '--请选择一级版块--'},
+                  { "onchange" => remote_function(:with => "'first_forum_id='+value",:update => 'next_select', :url => { :controller=>:forums,:action => :select_with_ajax } ) }%>
+              </p>
+            </div>
+
+            <div class="column width3" id ="next_select">
+              <%=  select  :article, :forum_id,[[@article.forum.name,@article.forum.id] ] if @article.forum%>
+            </div>
+          </div>
+                  <p>
+
+
+             <label for="productdesc">页面模版</label><br/>
+            <%= select( :article,:page_temp_id, PageTemp.find(:all,:conditions=>["temp_type='文章' and is_acticity=true"]).collect {|p| [ p.name, p.id ] }) %>
+          </p>
+            <p class="box"><input type="submit" class="btn btn-green big" value="提交">  <%= link_to '返回', articles_path,:class=>"btn btn-green big" ,:style=>"vertical-align: middle;margin-bottom: 0;"%></p>
+
+        </fieldset>
+
+      <%end%>
+
+  </div>
+</div>
+
+
+
