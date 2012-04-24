@@ -80,14 +80,14 @@
           </p>
 
         <p>
-          <%if @forum.picture1%>
+          <%if @forum.picture1 and @forum.picture1!=""%>
           <%= image_tag(@forum.picture1,:width=>100)%>
           <%end%>
         </p>
         <p>
           <input type="text" id="url" value="<%=@forum.picture1%>" name="forum[picture1]"/> <input type="button" id="image" value="选择版块大图" />
         </p>
-         <p><%if @forum.picture2%>
+         <p><%if @forum.picture2 and @forum.picture1!=""%>
           <%= image_tag(@forum.picture2,:width=>100)%>
           <%end%>
         </p>

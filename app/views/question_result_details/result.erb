@@ -1,38 +1,37 @@
 
 <script type="text/javascript">
 $(function(){
+
     line1 =<%=raw @data.inspect %>
-     
-     //--添加横纵坐标分类
-     plot = $.jqplot('chart', [line1], {
 
-     title: '问卷结果统计图',
-         seriesDefaults: {
-         renderer: $.jqplot.BarRenderer, //使用柱状图表示
-          pointLabels: { show: true },
-         rendererOptions: {
-              barMargin: 60   //柱状体组之间间隔
-          }
-         },
-         axes: {
-             xaxis: {
-                 renderer: $.jqplot.CategoryAxisRenderer, //x轴绘制方式
-                 label: '问卷大类',
-           labelRenderer: $.jqplot.CanvasAxisLabelRenderer
-             },
-             yaxis: {
-             min: 0,           //y轴最小值
-             //max: 650,          //y轴最大值
-             numberTicks:6,           //网格线条数
-             tickInterval: 20,        //网格线间隔大小
-             label: '分数',
-           labelRenderer: $.jqplot.CanvasAxisLabelRenderer
-            }
-         }
-     });
-
-
-
+     $.jqplot.config.enablePlugins = true;
+       
+        plot1 = $.jqplot('chart1', [line1], {
+            title: '问卷结果统计图',
+            seriesDefaults:{
+                renderer:$.jqplot.BarRenderer,
+                pointLabels: { show: true },
+                rendererOptions: {
+                  barMargin: 20   //柱状体组之间间隔
+                  }
+            },
+            axes: {
+                xaxis: {
+                      renderer: $.jqplot.CategoryAxisRenderer, //x轴绘制方式
+                      label: '问卷大类',
+                      labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+                },
+                 yaxis: {
+                 min: 0,           //y轴最小值
+                 max: 110,          //y轴最大值
+                 numberTicks:6,           //网格线条数
+                 tickInterval: 20,        //网格线间隔大小
+                 label: '分数',
+               labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+                }
+            },
+            highlighter: { show: false }
+        });
 
     });
 </script>
@@ -43,18 +42,65 @@ $(function(){
   <div class="wrapper">
     <!-- Left column/section -->
     <section class="column width6 first">
- <div><span>You Clicked: </span><span id="info1">Nothing yet</span></div>
-     
         <fieldset>
           <legend>问卷结果</legend>
           <br>
+          <p>
+            <label  for="name">孩子性别：</label>
+            <%if @question_result.question_base.child_sex%>
+            男
+            <%else%>
+            女
+            <%end%>
+          </p>
+<br>
+          <p>
+            <label  for="name">孩子年龄：</label>
+            <%=@question_result.question_base.child_age%>
+          </p>
+<br>
+          <p>
+            <label  for="name">上幼儿园前最主要抚养人： </label>
+            <%=@question_result.question_base.child_guardian%>
+          </p>
           <br>
-          <br>
-          <br>
-          <br>
-      <div id="chart" style="margin-top:20px; margin-left:20px; width:500px; height:500px;"></div>
+          <p>
+            <label  for="name">孩子日常管教父母双方的时间：</label>
+             <%=@question_result.question_base.child_time%>
+          </p>
+<br>
+          <p>
+            <label  for="name"孩子的兴趣爱好：</label>
+            <%=@question_result.question_base.child_interest%>
+          </p>
 
-  <div id="chart1" style="margin-top:20px; margin-left:20px; width:300px; height:300px;"></div>
+          <p>
+            <label  for="name">别人对孩子的评价如何？（老师、同学、其他家人）</label><br/>
+             <%=@question_result.question_base.child_evaluate%>
+          </p>
+
+          <p>
+            <label  for="name">孩子的身体状况，例如心脏疾病、有过敏症等</label><br/>
+              <%if@question_result.question_base.child_body_ok%>
+               有
+              <%else%>
+              无
+              <%end%>
+          
+          </p>
+          <p id ="question_base_child_target_p" >
+            <label  for="name">说明:</label><br/>
+              <%=@question_result.question_base.child_target%>
+          </p>
+
+
+
+
+          <br>
+          <br>
+          <br>
+          <br>
+<div id="chart1" style="margin-top:20px; margin-left:20px; width:500px; height:500px;"></div>
 
           
 
@@ -66,12 +112,10 @@ $(function(){
   <!-- End of Wrapper -->
 </div>
 
-   <script class="include" type="text/javascript" src="/javascripts/dist/jquery.jqplot.min.js"></script>
-    <script type="text/javascript" src="/javascripts/dist/syntaxhighlighter/scripts/shCore.min.js"></script>
-    <script type="text/javascript" src="/javascripts/dist/syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
-    <script type="text/javascript" src="/javascripts/dist/syntaxhighlighter/scripts/shBrushXml.min.js"></script>
+   
+   
 <!-- Additional plugins go here -->
-
+   <script class="include" type="text/javascript" src="/javascripts/dist/excanvas.min.js"></script>
   <script class="include" type="text/javascript" src="/javascripts/dist/jquery.jqplot.min.js"></script>
   <script class="include" type="text/javascript" src="/javascripts/dist/plugins/jqplot.barRenderer.min.js"></script>
   <script class="include" type="text/javascript" src="/javascripts/dist/plugins/jqplot.pieRenderer.min.js"></script>

@@ -13,10 +13,15 @@
       <h3><%=detail.name%></h3>
 
      <%= simple_form_for(@question_result_detail) do |f| %>
-       <%= f.text_field :question_detail_id %>
-        <%= f.text_field :question_result_id %>
+       <%= f.text_field :question_detail_id,:style=>"display:none" %>
+        <%= f.text_field :question_result_id,:style=>"display:none" %>
         <fieldset>
-          <legend><%=@question_result.get_question_detail_ids.length%><%if @question_result.get_question_detail_ids.length==1%>当前为最后一题<%end%></legend>
+          <legend>
+            <%if @question_result.get_question_detail_ids.length==1%>
+            当前为最后一题
+            <%else%>
+            还有<%=@question_result.get_question_detail_ids.length-1%>题
+            <%end%></legend>
           <p>
             <input type="radio" name="question_result_detail[answer_num]"
           value="0" /><%=detail.a_secect%>

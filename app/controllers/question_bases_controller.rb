@@ -41,11 +41,10 @@ class QuestionBasesController < ApplicationController
   # POST /question_bases
   # POST /question_bases.xml
   def create
-    @question_basis = QuestionBase.new(params[:question_basis])
-    
-    @question_result = QuestionResult.new
+    @question_basis = QuestionBase.new(params[:question_base])
+    @question_basis.save
+    @question_result = QuestionResult.new(params[:question_result])
     @question_result.question_base_id = @question_basis.id
-    @question_result.question_id = params[:question_id]
     @question_result.save
 
 

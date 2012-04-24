@@ -33,17 +33,12 @@ class QuestionResult < ActiveRecord::Base
 			res =QuestionResultDetail.find_by_question_detail_id_and_question_result_id(d.id,self.id)
 			data[c.name] = data[c.name]+res.answer_num
 			end
-			data[c.name] = data[c.name]*c.number/c.question_details.length/5
+			data[c.name] = data[c.name]*100/c.question_details.length/4
 			end
 		end
-		total = 0
+
 
 		data.each do |k,v|
-			total = total +v
-		end
-
-		data.each do |k,v|
-		 data[k] = data[k]*100/total
 		 data_array.push([k,data[k]])
 		end
 

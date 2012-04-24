@@ -14,54 +14,69 @@
       <%= simple_form_for(@question_basis) do |f| %>
         <fieldset>
           <legend>填写问卷基本信息</legend>
+          <p>
+            <label class="required" for="name">孩子性别</label><br/>
+             <input type="radio" name="question_base[child_sex]"
+          value="1" />男
+            <input type="radio" name="question_base[child_sex]"
+          value="0" />女
+          </p>
+<br>
+          <p>
+            <label class="required" for="name">孩子年龄</label><br/>
+           <input class="numeric integer optional" id="question_base_child_age" name="question_base[child_age]" step="1" type="number">
+          </p>
+<br>
+          <p>
+            <label class="required" for="name">上幼儿园前最主要抚养人</label><br/>
+            <input name="question_base[child_guardian]" value = "爷爷奶奶" type="radio" >爷爷奶奶
+            <input name="question_base[child_guardian]" value = "外公外婆" type="radio" >外公外婆
+            <input name="question_base[child_guardian]"value = "父母" type="radio" >父母
+            <input name="question_base[child_guardian]"value = "其他" type="radio" >其他
+          </p>
+          <br>
+          <p>
+            <label class="required" for="name">孩子日常管教父母双方的时间：</label><br/>
+            <input name="question_base[child_time]" value = "妈妈为主" type="radio" >妈妈为主
+            <input name="question_base[child_time]" value = "爸爸为主" type="radio" >爸爸为主
+            <input name="question_base[child_time]"value = "共同管教" type="radio" >共同管教
+            <input name="question_base[child_time]"value = "其他人管教为主" type="radio" >其他人管教为主
+          </p>
+<br>
+          <p>
+            <label class="required" for="name">孩子的兴趣爱好</label><br/>
+            <input class="child_interest" name="question_base[child_interest]" value = "看电视" type="checkbox" >看电视 
+            <input class="child_interest" name="question_base[child_interest]" value = "电脑游戏" type="checkbox" >电脑游戏
+            <input class="child_interest" name="question_base[child_interest]"value = "画画" type="checkbox" >画画
+            <input class="child_interest" name="question_base[child_interest]"value = "阅读" type="checkbox" >阅读
+            <input class="child_interest" name="question_base[child_interest]"value = "音乐类 " type="checkbox" >音乐类
+            <input class="child_interest"name="question_base[child_interest]"value = "做游戏" type="checkbox" >做游戏
+            <%= f.text_field :child_interest,:class=>"half",:style=>"display:none"%>
+          </p>
 
-          <p> <input name="question_id" value="<%=@question_id%>" style="display:none">
-            <label class="required" for="name">幼儿姓名</label><br/>
-            <%= f.text_field :chind_name,:class=>"half" %>
+          <p>
+            <label class="required" for="name">别人对孩子的评价如何？（老师、同学、其他家人）</label><br/>
+            <%= f.text_area :child_evaluate,:class=>"half",:rows=>"10" %>
           </p>
 
           <p>
-            <label class="required" for="name">幼儿性别</label><br/>
-            <%= f.text_field :child_sex,:class=>"half" %>
+            <label class="required" for="name">孩子的身体状况，例如心脏疾病、有过敏症等</label><br/>
+            <input type="radio" name="question_base[child_body_ok]"
+          value="0" onclick="hide()"/>无
+            <input type="radio" name="question_base[child_body_ok]"
+          value="1" onclick="show()"/>有
+          </p>
+          <p id ="question_base_child_target_p" style="display:none">
+            <label class="required" for="name">说明:</label><br/>
+            <%= f.text_area :child_target,:class=>"half",:rows=>"10"  %>
           </p>
 
           <p>
-            <label class="required" for="name">幼儿年龄</label><br/>
-            <%= f.text_field :child_age,:class=>"half" %>
+             <label for="productdesc">选择问卷</label><br/>
+             <%= select( :question_result,:question_id, Question.find(:all,:conditions=>"flage=1").collect {|p| [ p.name, p.id ] }) %>
           </p>
 
-          <p>
-            <label class="required" for="name">监护人</label><br/>
-            <%= f.text_field :child_guardian,:class=>"half" %>
-          </p>
 
-          <p>
-            <label class="required" for="name">监护人照看时间</label><br/>
-            <%= f.text_field :child_time,:class=>"half" %>
-          </p>
-
-          <p>
-            <label class="required" for="name">幼儿兴趣爱好</label><br/>
-            <%= f.text_field :child_interest,:class=>"half" %>
-          </p>
-
-          <p>
-            <label class="required" for="name">幼儿评价</label><br/>
-            <%= f.text_field :child_evaluate,:class=>"half" %>
-          </p>
-
-          <p>
-            <label class="required" for="name">幼儿身体是否健康</label><br/>
-            <%= f.text_field :child_body_ok,:class=>"half" %>
-          </p>
-          <p>
-            <label class="required" for="name">幼儿身体情况</label><br/>
-            <%= f.text_field :child_body_msg,:class=>"half" %>
-          </p>
-          <p>
-            <label class="required" for="name">幼儿身体情况</label><br/>
-            <%= f.text_field :child_target,:class=>"half" %>
-          </p>
           <p class="box"><input type="submit" class="btn btn-green big" value="下一步"/>
             or
             <input type="reset" class="btn" value="重置"/>
@@ -74,3 +89,27 @@
 
   <!-- End of Wrapper -->
 </div>
+
+<script type="text/javascript">
+
+
+function show(){
+$("#question_base_child_target_p").show()
+}
+
+function hide(){
+  $("#question_base_child_target_p").hide()
+}
+
+$(".child_interest").change(function(){
+  val = "";
+  $(".child_interest").each(function(){
+    if ($(this).attr('checked')){
+      val = val +$(this).val()+" | "
+    }
+   
+ });
+
+  $("#question_base_child_interest").attr("value",val);
+})
+</script>

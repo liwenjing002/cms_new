@@ -52,10 +52,10 @@
                          <tr id= "q0" class="gradeA odd question" style="display:none">
                            <td></td>
                            <td></td>
-                           <td>
+                           <td align="left">
                              <input class="show half" id="question_category_id" name="question_category[id]" size="30" type="text" tr= "00" style="display:none">     
                              <input class="show half" id="question_detail_id" name="question_detail[id]" size="30" type="text" tr= "00" style="display:none">     
-                             题目：
+                             题目：<br>
                              <textarea  rows="6"  id="question_detail_name" name="question_detail[name]" size="30" tr= "00"></textarea>
                            </td>
                            <td>
@@ -135,8 +135,7 @@
                                                      <input class="show half" id="question_detail_id" name="question_detail[id]" size="30" type="text" tr= "q<%=b.id%>" style="display:none" value= "<%=b.id%>">     
                                                      题目：
                                                      <textarea  rows="6"  id="question_detail_name" name="question_detail[name]" size="30" tr= "q<%=b.id%>"><%=b.name%></textarea></div>
-                                                   </td>
-                                                   <td><div >积分正向：</br>
+                                                   <div >积分正向：</br>
                                                      <input <%if b.count==true %> checked="checked" <%end%> class="show half" id="count" name="count" size="30" type="checkbox" tr= "q<%=b.id%>"></br>
                                                    a:
                                                    <input  name ="a_secect" type="text"  value="<%=b.a_secect%>" tr= "q<%=b.id%>" ></br>
@@ -212,7 +211,7 @@
           question_id = "<%=@question.id%>"
       tr_num = $(this).attr("tr");
       name = $("input[name='question_category[name]'][tr="+tr_num+"]").attr("value")
-      number = $("select[name='question_category[number]'][tr="+tr_num+"]").attr("value")
+      number = $("select[name='question_category[number]'][tr="+tr_num+"] option:selected").val()
       if(name =="" ){
         alert("类别名称不为空")
         return false;

@@ -17,4 +17,9 @@ $("input[tr=<%=params[:tr_id]%>][name='add_button']").show();
                               $(element).attr("tr","<%=params[:tr_id].to_i+1%>")
                            }
                           );
+        clonedtr.find("select").each( function(index, element)
+                           {
+                              $(element).attr("tr","<%=params[:tr_id].to_i+1%>")
+                           }
+                          );
   $("#example").append(clonedtr);
