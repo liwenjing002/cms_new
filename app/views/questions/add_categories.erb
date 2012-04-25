@@ -36,6 +36,9 @@
                              <select class="show" id="question_category_number" name="question_category[number]" tr="1">
                                <option value="20" >20</option>
                                <option value="40">40</option>
+                                <option value="60">60</option>
+                                 <option value="80">80</option>
+                                 <option value="80">100</option>
                              </select>
                            </td>
                            <td>
@@ -59,7 +62,7 @@
                              <textarea  rows="6"  id="question_detail_name" name="question_detail[name]" size="30" tr= "00"></textarea>
                            </td>
                            <td>
-                             积分正向：
+                             积分反向：
                              <input class="show half" id="count" name="count" size="30" type="checkbox" tr= "00"></br>
                            a:
                            <input  name ="a_secect" type="text"  value="" tr= "00" ></br>
@@ -91,10 +94,16 @@
                                <td>
                                  <select class="show" id="question_category_number" name="question_category[number]" tr="<%=i%>
                                    ">
-                                   <option value="20" <%if a.number==20%> <%end%>>20</option>
-                                     <option value="40" <%if a.number==40%>
-                                       selected
+                                   <option value="20" <%if a.number==20%>
+                                    selected <%end%>>20</option>
+                                     <option value="40" <%if a.number==40%>   selected
                                        <%end%>>40</option>
+                                        <option value="60" <%if a.number==60%>   selected
+                                       <%end%>>60</option>
+                                        <option value="80" <%if a.number==80%>   selected
+                                       <%end%>>80</option>
+                                        <option value="100" <%if a.number==100%>   selected
+                                       <%end%>>100</option>
                                      </select>
                                    </td>
                                    <td>
@@ -130,13 +139,13 @@
                                                  <tr id= "q<%=b.id%>" class="gradeA odd question" style="display:none1">
                                                    <td></td>
                                                    <td></td>
-                                                   <td><div>
+                                                   <td>
                                                      <input class="show half" id="question_category_id" name="question_category[id]" size="30" type="text" tr= "q<%=b.id%>" value= "<%=a.id%>" style="display:none">
                                                      <input class="show half" id="question_detail_id" name="question_detail[id]" size="30" type="text" tr= "q<%=b.id%>" style="display:none" value= "<%=b.id%>">     
-                                                     题目：
-                                                     <textarea  rows="6"  id="question_detail_name" name="question_detail[name]" size="30" tr= "q<%=b.id%>"><%=b.name%></textarea></div>
-                                                   <div >积分正向：</br>
-                                                     <input <%if b.count==true %> checked="checked" <%end%> class="show half" id="count" name="count" size="30" type="checkbox" tr= "q<%=b.id%>"></br>
+                                                     题目：<br>
+                                                     <textarea  rows="6"  id="question_detail_name" name="question_detail[name]" size="30" tr= "q<%=b.id%>"><%=b.name%></textarea></td>
+                                                   <td>积分反向：</br>
+                                                     <input <%if b.count==false %> checked="checked" <%end%> class="show half" id="count" name="count" size="30" type="checkbox" tr= "q<%=b.id%>"></br>
                                                    a:
                                                    <input  name ="a_secect" type="text"  value="<%=b.a_secect%>" tr= "q<%=b.id%>" ></br>
                                                  b:
@@ -146,7 +155,7 @@
                                              d:
                                              <input  name ="d_secect" type="text"  value="<%=b.d_secect%>" tr= "q<%=b.id%>" >
                                              </br>
-                    e:<input  name ="e_secect" type="text"  value="<%=b.e_secect%>" tr= "q<%=b.id%>" ></div>
+                    e:<input  name ="e_secect" type="text"  value="<%=b.e_secect%>" tr= "q<%=b.id%>" >
                                            </td>
                                            <td>
                                              <input style= "display:none" name ="submit_button" type="submit" class="show btn btn-green big submit_button_question" value="提交" tr="q<%=b.id%>" ></td>
@@ -171,8 +180,11 @@
 
                                                    <select class="show" id="question_category_number" name="question_category[number]" tr="<%=@question.question_categories.length+1%>
                                                      ">
-                                                     <option value="20">20</option>
+                                                      <option value="20" >20</option>
                                                      <option value="40">40</option>
+                                                      <option value="60">60</option>
+                                                       <option value="80">80</option>
+                                                       <option value="80">100</option>
                                                      <td>
                                                        <input  name ="submit_button" type="submit" class="show btn btn-green big submit_button" value="提交" tr="<%=@question.question_categories.length+1%>"></td>
                                                      <td>
@@ -298,9 +310,9 @@ name = $("textarea[name='question_detail[name]'][tr="+tr_num2+"]").val()
  e =$("input[name='e_secect'][tr="+tr_num2+"]").attr("value")
  count_boolean =$("input[name='count'][tr="+tr_num2+"]").attr("checked")
  if(count_boolean==true){
-count_boolean =1
+count_boolean =0
  }else{
-count_boolean=0
+count_boolean=1
  }
 res = "&question_detail[a_secect]="+a +"&question_detail[b_secect]="+b+"&question_detail[c_secect]="+c+"&question_detail[d_secect]="+d+"&question_detail[e_secect]="+e+"&question_detail[count]="+count_boolean;
 
@@ -333,9 +345,9 @@ name2 = $("textarea[name='question_detail[name]'][tr="+tr_num3+"]").val()
  e =$("input[name='e_secect'][tr="+tr_num3+"]").attr("value")
  count_boolean2 =$("input[name='count'][tr="+tr_num3+"]").attr("checked")
   if(count_boolean2=="on"){
-count_boolean2 =1
+count_boolean2 =0
  }else{
-count_boolean2=0
+count_boolean2=1
  }
 res = "&question_detail[a_secect]="+a +"&question_detail[b_secect]="+b+"&question_detail[c_secect]="+c+"&question_detail[d_secect]="+d+"&question_detail[e_secect]="+e+"&question_detail[count]="+count_boolean2;
   if(name2 =="" ){
