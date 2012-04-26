@@ -45,19 +45,15 @@ class QuestionResultDetailsController < ApplicationController
 
      @question_result = question_result_detail.question_result
     respond_to do |format|
-      if question_result_detail.save
         if @question_result.get_question_detail_ids.length ==0
           @data = @question_result.get_result_data
           format.html {render "result"}
           else
+            question_result_detail.save
             format.html {render "question"}
         end
         
         format.xml  { render :xml => @question_result_detail, :status => :created, :location => @question_result_detail }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @question_result_detail.errors, :status => :unprocessable_entity }
-      end
     end
   end
 

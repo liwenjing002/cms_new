@@ -32,13 +32,14 @@ class QuestionResult < ActiveRecord::Base
 			c.question_details.each do |d|
 			res =QuestionResultDetail.find_by_question_detail_id_and_question_result_id(d.id,self.id)
 			
-			if d.count == 1
-			data[c.name] = data[c.name]+res.answer_num
+			if d.count 
+			data[c.name] = (data[c.name]+res.answer_num)
 			else
-				data[c.name] = data[c.name]-res.answer_num+4
+			data[c.name] = (data[c.name]-res.answer_num+4)
 			end
 			end
-			data[c.name] = data[c.name]*100/c.question_details.length/4
+
+			data[c.name] = data[c.name]*100/(c.question_details.length*4)
 			end
 		end
 
