@@ -61,16 +61,16 @@ module ApplicationHelper
   end
 
   def forum_tab forum
-    # if forum
-    #   if forum.father ==nil
-    #     return  link_to("首页","/") +  " > > "+  link_to(forum.name,"/homes/forums/#{forum.id}")
+    if forum
+      if forum.father ==nil
+        return  link_to("首页","/") +  " > > "+  link_to(forum.name,"/homes/forums/#{forum.id}")
 
-    #   end
-    #   if forum.father!= nil
-    #     return    link_to("首页","/") +  " > >  "+  link_to(forum.father.name,"/homes/forums/#{forum.father.id}")+  ">> "+  link_to(forum.name,"/homes/forums/#{forum.id}")
-    #   end
-       return  link_to("首页","/") +  " > > "+  link_to(forum.name,"/homes/forums/#{forum.id}")
-    # end
+      end
+      if forum.father!= nil
+        return    link_to("首页","/") +  " > >  "+  link_to(forum.father.name,"/homes/forums/#{forum.father.id}")+  ">> "+  link_to(forum.name,"/homes/forums/#{forum.id}")
+      end
+    
+    end
   end
 
 
@@ -85,7 +85,12 @@ end
 
   def create_html_top
    @temp_top =  PageTemp.find_by_temp_type_and_is_acticity("页头",true) 
-   @temp_top.content if @temp_top
+    ERB.new(@temp_top.content).result(self.send( :binding ))  if @temp_top
+  end
+
+   def create_html_left
+   @temp_left =  PageTemp.find_by_temp_type_and_is_acticity("左侧导航",true) 
+    ERB.new(@temp_left.content).result(self.send( :binding ))  if @temp_left
   end
 
   def create_html_body
@@ -100,14 +105,14 @@ end
         @temp_body = @article.page_temp
          @temp_body =  PageTemp.find_by_temp_type_and_is_acticity("文章",true)  if  @temp_body==nil
       end   
-       return @temp_body.content    if @temp_body
+       return ERB.new(@temp_body.content).result(self.send( :binding ))  if @temp_body
     end
 
   end
 
   def create_html_foot
    @temp_foot =  PageTemp.find_by_temp_type_and_is_acticity("页尾",true)
-   @temp_foot.content if  @temp_foot
+   ERB.new(@temp_foot.content).result(self.send( :binding ))  if @temp_foot
   end
   
 end

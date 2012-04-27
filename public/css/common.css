@@ -1,0 +1,163 @@
+/* CSS Document */
+
+a{
+text-decoration:none;
+}
+a:hover{
+text-decoration:underline;
+}
+
+body{
+padding:0;
+margin:0;
+}
+.bgbody{
+width:100%;
+margin:0 auto;
+background:url(/image/img_01.png) repeat-x;
+}
+#top{
+width:996px;
+height:90px;
+margin:0 auto;
+}
+#top .logo{
+float:left;
+padding-left:20px;
+}
+#top .top_nav{
+width:240px;
+height:82px;
+float:right;
+background:url(/image/top_navbg.png)
+}
+#top .top_nav ul{
+margin:0;
+padding:0;
+width:180px;
+padding-left:30px;
+}
+#top .top_nav ul li{
+float:left;
+display:block;
+font-size:12px;
+width:60px;
+margin:0 auto;
+line-height:28px;
+}
+#top .top_nav ul li a{
+color:#725230;
+font-family: "Microsoft YaHei","simhei";
+text-decoration:none;
+}
+#top .top_nav ul li a:hover{
+text-decoration:underline;
+}
+#menu{
+width:996px;
+height:48px;
+background:url(/image/img_02.png) no-repeat;
+margin:0 auto;
+}
+#menu ul{
+margin:0;
+padding:0;
+width:990px;
+padding-left:10px;
+}
+#menu ul li{
+display:block;
+float:left;
+padding:0;
+font-family: "Microsoft YaHei","simhei";
+color:#FFFFFF;
+line-height:44px;
+width:135px;
+text-align:center;
+margin:0 auto;
+}
+#menu ul li a{
+color:#FFFFFF;
+}
+#menu ul li a:hover{
+width:115px;
+height:48px;
+margin:0 auto;
+display:block;
+text-decoration:none;
+background:url(/image/img_02a.png) no-repeat;
+}
+#menu ul li a:active{
+width:115px;
+height:48px;
+margin:0 auto;
+display:block;
+text-decoration:none;
+background:url(/image/img_02a.png) no-repeat;
+}
+#content{
+width:996px;
+margin:0 auto;
+height:auto;
+clear:both;
+
+}
+#buttom{
+width:100%;
+margin-top:30px;
+display:inline-table;
+min-height:70px;
+background:#fff url(/image/index/index_21.jpg) repeat-x;
+}
+.buttom{
+width:996px;
+margin:0 auto;
+text-align:center;
+}
+.buttom ul{
+width:530px;
+display:inline-table;
+margin:0 auto;
+text-align:center;;
+}
+.buttom ul li{
+display:block;
+width:75px;
+margin-top:15px;
+line-height:30px;
+float:left;
+font-family: "Microsoft YaHei","simhei";
+font-size:12px;
+color:#333333;
+}
+.buttom ul li a{
+font-family: "Microsoft YaHei","simhei";
+font-size:12px;
+color:#333333;
+margin-right:10px;
+}
+.copyright{
+font-family: "Microsoft YaHei","simhei";
+font-size:12px;
+color:#333333;
+}
+
+
+.pagination{
+	float: right;
+	font-size: 12px;
+	color: #FF9817;
+margin-right: 30px;
+margin-top:20px;
+
+
+}
+
+
+
+
+
+
+
+
+

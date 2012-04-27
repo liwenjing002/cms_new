@@ -1,0 +1,448 @@
+#left{
+float:left;
+width:200px;
+margin-top:30px;
+padding-left:15px;
+}
+.left_menu .left_menu_title{
+width:191px;
+height:40px;
+background:url(/image/img_03.png) no-repeat;
+}
+.left_menu .left_menu_title span{
+font-family: "Microsoft YaHei","simhei";
+color:#FFFFFF;
+line-height:40px;
+padding-left:30px;
+}
+.left_menu ul{
+margin:0;
+padding:0;
+}
+.left_menu ul li{
+display:block;
+width:191px;
+height:44px;
+background:url(/image/img_04.png) no-repeat;
+list-style:none;
+}
+.left_menu ul li a{
+color:#251602;
+font-size:12px;
+font-family: "Microsoft YaHei","simhei";
+padding-left:40px;
+line-height:40px;
+}
+.left_tel{
+margin-top:15px;
+}
+#right{
+float:left;
+width:780px;
+margin-top:20px;
+
+}
+/*--------------------course.html-------------------------------*/
+.course_content{
+width:780px;
+margin-top:10px;
+}
+.course_title{
+width:300px;
+padding-left:10px;
+line-height:30px;
+}
+.course_title img{
+vertical-align:middle;
+}
+.course_title span{
+font-family: "Microsoft YaHei","simhei";
+color:#fb7805;
+}
+.course_pic img{
+padding-left:10px;
+}
+/*--------------------about.html-------------------------------*/
+.about_bg{
+width:760px;
+background:url(/image/about/about_01.jpg) no-repeat;
+height:608px;
+margin-left:10px;
+}
+.about_bg_title{
+padding-top:20px;
+padding-left:4px;
+color:#5d2b13;
+font-family:"Microsoft YaHei";
+font-weight:bold;
+font-size:15px;
+line-height:30px;
+width:200px;
+}
+.about_bg_title span{
+font-size:12px;
+color:#f97806;
+font-size:14px;
+font-family:"Candara";
+padding-left:4px;
+}
+.about_content{
+width:720px;
+margin-top:10px;
+margin-left:15px;
+}
+.about_content .about_text{
+font-size:12px;
+color:#625e59;
+line-height:22px;
+padding-left:15px;
+
+}
+.about_content .about_text p{
+text-indent:2em;
+margin:0;
+padding:0;
+}
+/*--------------------EQ.html-------------------------------*/
+.eq_bg{
+width:760px;
+background:url(/image/EQ/EQ_01.jpg) no-repeat;
+height:970px;
+margin-left:10px;
+margin-top:6px;
+}
+.eq_bg_title{
+padding-top:5px;
+padding-left:4px;
+color:#5d2b13;
+font-family:"Microsoft YaHei";
+font-weight:bold;
+font-size:15px;
+line-height:30px;
+}
+.eq_bg_title span{
+font-size:12px;
+color:#f97806;
+font-size:14px;
+font-family:"Candara";
+padding-left:4px;
+}
+.eq_about{
+width:700px;
+margin-left:10px;
+height:210px;
+}
+.eq_about .eq_about_title{
+white-space:nowrap;
+color:#FFFFFF;
+font-family:"Microsoft YaHei";
+padding-top:22px;
+padding-left:22px;
+}
+.eq_about .eq_about_text{
+font-size:12px;
+color:#625e59;
+line-height:22px;
+padding-left:35px;
+padding-top:10px;
+
+}
+.eq_about .eq_about_text p{
+text-indent:2em;
+margin:0;
+padding:0;
+}
+.eq_block{
+width:730px;
+margin-top:30px;
+}
+.eq_h1{
+width:730px;
+height:40px;
+margin-left:10px;
+background:url(/image/EQ/eq_03.jpg) no-repeat;
+}
+.eq_h1 span{
+color:#f95c07;
+font-family:"Microsoft YaHei";
+padding-left:25px;
+line-height:35px;
+}
+.eq_block_content{
+width:700px;
+margin-left:30px;
+margin-top:10px;
+}
+.eq_block_title{
+width:210px;
+height:30px;
+background:url(/image/EQ/eq_07.jpg) no-repeat;
+}
+.eq_block_title span{
+font-size:12px;
+font-weight:bold;
+padding-left:35px;
+line-height:30px;
+}
+.eq_block_text{
+font-size:12px;
+color:#625e59;
+line-height:24px;
+padding-left:15px;
+padding-top:5px;
+}
+/*--------------------activity.html-------------------------------*/
+.activity_top{
+width:760px;
+margin-top:5px;
+}
+.activity_title{
+float:left;
+width:300px;
+padding-left:10px;
+line-height:30px;
+}
+.activity_title img{
+vertical-align:middle;
+}
+.activity_title span{
+font-family: "Microsoft YaHei","simhei";
+color:#625e59;
+padding-left:3px;
+}
+.activity_location{
+float:right;
+font-size:12px;
+letter-spacing:1px;
+color:#625e59;
+padding-top:8px;
+}
+.activity_location a{
+color:#625e59;
+font-weight:bold;
+}
+.activity_line{
+padding-left:5px;
+width:780px;
+}
+.activity_banner{
+width:780px;
+height:190px;
+padding-left:5px;
+padding-top:10px;
+}
+.activity_news{
+width:780px;
+margin:0 auto;
+padding-left:10px;
+padding-top:10px;
+}
+.activity_news_title{
+width:780px;
+height:45px;
+background:url(/image/activity/act_06.jpg) no-repeat;
+}
+.news_title_a{
+float:left;
+width:680px;
+padding-left:10px;
+padding-top:5px;
+line-height:30px;
+}
+.news_title_a img{
+vertical-align:middle;
+}
+.news_title_a span{
+font-family: "Microsoft YaHei","simhei";
+color:#fb7805;
+font-size:13px;
+padding-left:3px;
+}
+.news_more{
+float:left;
+line-height:30px;
+font-size:12px;
+letter-spacing:1px;
+color:#625e59;
+padding-top:8px;
+}
+.news_more a{
+color:#ff3304;
+font-family:"Cambria Math";
+font-weight:bold;
+}
+.right_activity_content{
+width:750px;
+display:inline-table;
+margin:0;
+padding:0;
+}
+.right_activity_content li{
+font-size:12px;
+list-style:none;
+width:730px;
+color:#625e59;
+margin-left:20px;
+padding-left:5px;
+display:inline-table;
+border-bottom:1px #fd7702 dashed;
+line-height:36px;
+
+}
+.right_activity_content li span{
+color:#ff9817;
+
+}
+.right_activity_content li a{
+float:left;
+width:560px;       /* for IE */
+color:#625e59;
+display:block;/*内联对象需加*/
+word-break:keep-all;/* 不换行 */
+white-space:nowrap;/* 不换行 */
+overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(.) ；需与overflow:hidden;一起使用。*/
+}
+.list_data{
+float:right;
+}
+/*--------------------inside.html-------------------------------*/
+.inside_content{
+width:780px;
+padding-top:10px;
+}
+.inside_content h3{
+width:760px;
+text-align:center;
+font-family:"Microsoft YaHei";
+letter-spacing:1px;
+}
+.inside_from{
+float:right;
+font-size:12px;
+color:#454545;
+}
+.inside_from span{
+color:#FF0000;
+width:760px;
+}
+.inside_text{
+font-size:12px;
+line-height:25px;
+padding-left:20px;
+padding-top:20px;
+width:760px;
+}
+.inside_text p{
+text-indent:2em;
+}
+.inside_theme{
+width:780px;
+padding-top:15px;
+margin:0 auto;
+}
+.theme_title{
+width:710px;
+height:27px;
+background:url(/image/inside/inside_03.jpg) no-repeat;
+margin:0 auto;
+}
+.theme_title span{
+color:#FFFFFF;
+font-weight:bold;
+padding-left:15px;
+line-height:26px;
+}
+.theme_list{
+width:650px;
+display:inline-table;
+margin:0;
+padding:0;
+}
+.theme_list li{
+font-size:12px;
+list-style:none;
+width:650px;
+color:#686766;
+margin-left:60px;
+padding-left:5px;
+display:inline-table;
+line-height:20px;
+padding-top:5px;
+
+}
+.theme_list li a{
+float:left;
+width:520px;       /* for IE */
+color:#625e59;
+display:block;/*内联对象需加*/
+word-break:keep-all;/* 不换行 */
+white-space:nowrap;/* 不换行 */
+overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(.) ；需与overflow:hidden;一起使用。*/
+}
+.theme_data{
+float:right;
+}
+/*--------------------story.html,-------------------------------*/
+.story_banner{
+width:770px;
+height:95px;
+padding-left:5px;
+padding-top:10px;
+}
+.story_news{
+width:780px;
+margin:0 auto;
+padding-left:5px;
+}
+.story_news_title{
+width:770px;
+height:36px;
+background:url(/image/three/story_06.jpg) no-repeat;
+}
+.story_pic{
+float:right;
+padding-top:10px;
+margin-right:10px;
+}
+.story_pic img{
+padding-left:25px;
+}
+.right_activity_content li img{
+vertical-align:middle;
+float:left;
+display:inline-table;
+margin-top:6px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

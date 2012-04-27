@@ -1,0 +1,283 @@
+/* CSS Document */
+
+#banner{
+width:996px;
+height:190px;
+margin-top:6px;
+margin-left:3px;
+}
+.banner_pic{
+float:left;
+width:745px;
+}
+.login{
+width:245px;
+float:left;
+height:186px;
+background:url(/image/index/index_04.jpg) no-repeat;
+}
+.login_title{
+margin-left:20px;
+padding-top:10px;
+color:#f93a07;
+font-family:"Microsoft YaHei";
+border-bottom:1px #725230 dashed;
+line-height:30px;
+width:200px;
+}
+.login_title span{
+font-size:12px;
+color:#f97806;
+font-family:"Candara";
+font-weight:bold;
+padding-left:4px;
+}
+.login table{
+width:180px;
+margin-top:10px;
+margin-left:30px;
+line-height:30px;
+}
+.login table td{
+font-family:"Microsoft YaHei";
+font-size:12px;
+text-align:left;
+}
+.login table td input{
+width:115px;
+}
+.login_button{
+width:145px;
+margin-top:11px;
+padding-left:50px;
+}
+.button01{
+width:68px;
+height:32px;
+background:url(/image/index/login_06.jpg) no-repeat;
+border:0;
+float:left;
+color:#FFFFFF;
+font-family:"Microsoft YaHei";
+}
+.button02{
+width:73px;
+height:32px;
+background:url(/image/index/login_03.jpg) no-repeat;
+border:0;
+float:left;
+color:#555555;
+font-family:"Microsoft YaHei";
+}
+#index_left{
+width:740px;
+float:left;
+margin-top:10px;
+}
+.focus{
+width:731px;
+height:235px;
+}
+.news{
+width:730px;
+margin-top:15px;
+padding-left:10px;
+}
+.learing{
+width:360px;
+float:left;
+}
+.learing_title{
+width:340px;
+height:39px;
+line-height:40px;
+background:url(/image/index/index_15.jpg) no-repeat;
+}
+.learing_title .title_X{
+float:left;
+width:270px;
+color:#FFFFFF;
+font-family:"Microsoft YaHei";
+font-size:14px;
+padding-left:20px;
+}
+.learing_title a{
+float:left;
+width:50px;
+color:#ffa00a;
+font-size:12px;
+}
+.learing_title a img{
+vertical-align:middle;
+}
+.learning_content{
+width:340px;
+display:inline-table;
+margin:0;
+padding:0;
+}
+.learning_content li{
+font-size:12px;
+list-style:none;
+width:320px;
+color:#625e59;
+padding-left:10px;
+line-height:35px;
+background:url(/image/index/index_14.jpg) no-repeat 0 10px;
+display:block;/*内联对象需加*/
+word-break:keep-all;/* 不换行 */
+white-space:nowrap;/* 不换行 */
+overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(.) ；需与overflow:hidden;一起使用。*/
+}
+.learning_content li span{
+padding-left:5px;
+width:100px;
+color:#ff9817;
+
+}
+.learning_content li a{
+width:220px;       /* for IE */
+color:#625e59;
+}
+#index_right{
+width:250px;
+float:right;
+}
+.right_activity{
+width:250px;
+margin-top:10px;
+}
+.activity_title{
+width:250px;
+height:45px;
+background:url(/image/index/index_09.jpg) no-repeat;
+color:#f93a07;
+font-family:"Microsoft YaHei";
+line-height:40px;
+padding-left:40px;
+}
+
+.activity_title span{
+font-size:12px;
+color:#f97806;
+font-family:"Candara";
+font-weight:bold;
+padding-left:4px;
+}
+.activity_content{
+width:250px;
+display:inline-table;
+margin:0;
+padding:0;
+background:url(/image/index/index_11.jpg) no-repeat;
+height:205px;
+}
+.activity_content li{
+font-size:12px;
+list-style:none;
+width:200px;
+margin-left:10px;
+color:#625e59;
+padding-left:10px;
+border-bottom:1px #725230 dashed;
+line-height:36px;
+display:block;/*内联对象需加*/
+word-break:keep-all;/* 不换行 */
+white-space:nowrap;/* 不换行 */
+overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(.) ；需与overflow:hidden;一起使用。*/
+}
+.activity_content li span{
+width:70px;
+color:#ff9817;
+
+}
+.activity_content li a{
+width:160px;       /* for IE */
+color:#625e59;
+}
+.right_weibo{
+width:250px;
+margin-top:10px;
+}
+.weibo_title{
+width:250px;
+height:46px;
+background:url(/image/index/index_17.jpg) no-repeat;
+color:#f93a07;
+font-family:"Microsoft YaHei";
+line-height:50px;
+padding-left:45px;
+}
+
+.weibo_title span{
+font-size:12px;
+color:#f97806;
+font-family:"Candara";
+font-weight:bold;
+padding-left:4px;
+}
+.weibo_content{
+width:250px;
+display:inline-table;
+margin:0;
+padding:0;
+background:url(/image/index/index_19.jpg) no-repeat;
+height:87px;
+}
+.weibo_content .weibo_pic{
+width:80px;
+float:left;
+margin-top:10px;
+padding-left:15px;
+}
+.button03{
+width:90px;
+height:35px;
+background:url(/image/index/index_06.jpg) no-repeat;
+border:0;
+float:left;
+color:#fff;
+font-family:"Microsoft YaHei";
+}
+.weibo_content .weibo_text{
+width:150px;
+float:left;
+margin-top:10px;
+}
+.weibo_content .weibo_text table td{
+font-family:"Microsoft YaHei";
+font-size:12px;
+}
+.weibo_content .weibo_text table td span{
+color:#ff8403;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

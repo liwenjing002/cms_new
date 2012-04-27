@@ -11,7 +11,7 @@ class HomesController < ApplicationController
 
   def get_head
     @web_info = WebInfo.find(:all)[0]
-    @forum_first = Forum.find(:all,:conditions=>["father_id is null and order_num > 0 and order_num <11"])
+    @forum_first = Forum.find(:all,:conditions=>["father_id is null and order_num > 0 and order_num <11 and code !='index'"],:order=>"order_num asc")
   end
 
   def forums
@@ -24,6 +24,7 @@ class HomesController < ApplicationController
 
   def articles
     @article = Article.find(params[:id])
+    @forum = @article.forum ? @article.forum : @article.father_forum
     if @article.read_num
     @article.read_num +=1
     else

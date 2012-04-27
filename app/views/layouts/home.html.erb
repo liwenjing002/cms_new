@@ -1,10 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0014)about:internet -->
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="http://open.weibo.com/wb">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>小船长</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicons/favicon.png"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<%if !@forum or @forum.code =='index'%>
+<link rel="stylesheet" type="text/css" href="/css/index.css">
+<%else%>
+<link rel="stylesheet" type="text/css" href="/css/list.css">
+<%end%>
 <script type="text/javascript">
 
 function addCookie()
@@ -45,46 +52,15 @@ function setHomepage()
  }
 }
 </script>
-<style type="text/css">td img {display: block;}body {
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
 
 
-
-ul.works {list-style:none;margin:0;padding:0;margin-left:20px;}
-
-ul.works li   {float:left;display: inline;margin:0 20px 20px 0;width:158px;height:150px;}
-
-ul.works li a {text-decoration: none;display:block;width:158px;height:150px;background:#fff;}
-
-ul.works li a img {width:150px;height:140px;border:0;}
-
-ul.works li a .imgthumb {position:relative;background:#EFEFEF;}
-
-ul.works li a .imgthumb span.thumb_shadow_right {position:relative;top:-3px;left:-3px;display:block;border:1px solid #BCBEC0;background:#FFF;padding:3px;text-align:center;}
-
-ul.works li a .intro   {display:none;margin-top:5px;height:80px;color:#9C9C91;line-height:1.5;}
-
-ul.works li a .intro p {border-bottom:1px solid #DEDEDD;overflow:hidden;}
-
-ul.works li a:hover {position:absolute;z-index:5;margin:-20px -6px -220px -30px;width:210px;background:#FFA342;cursor:pointer;}
-
-ul.works li a:hover .shadow {position:relative;display:block;padding:4px;}
-
-ul.works li a:hover .box    {border:1px solid #9FCF30;background:#fff;padding:15px 10px 15px 15px;}
-
-ul.works li a:hover .intro  {display:block;}
-
-</style>
-
-<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
-<!--Fireworks 8 Dreamweaver 8 target.  Created Mon Mar 26 23:52:52 GMT+0800 2012-->
-<link href="/css/css.css" rel="stylesheet" type="text/css" />
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8">
+</script>
+<title><%if @forum %><%== @forum.name %><%else%>小船长首页<%end%></title>
 </head>
-<body bgcolor="#ffffff">
+
+<body>
+  <div class="bgbody">
 	<%if create_html_top%>
 		<%= raw create_html_top  %>
 	<%else%>
@@ -102,6 +78,7 @@ ul.works li a:hover .intro  {display:block;}
 	<%else%>
 		<%=  render "common/default_foot"%>
 	<%end%>
+</div>
 	<%=  render "common/qq"%>
 </body>
-
+</html>

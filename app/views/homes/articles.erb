@@ -1,107 +1,36 @@
-<table width="1200" border="0" cellpadding="0" cellspacing="0">
-<tr>
-   <td><img src="/images/spacer.gif" width="101" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="205" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="35" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="7" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="77" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="54" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="384" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="100" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="33" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="66" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="15" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="26" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="97" height="1" border="0" alt=""></td>
-   <td><img src="/images/spacer.gif" width="1" height="1" border="0" alt=""></td>
-  </tr>
-  <tr>
-   <td><img name="neiye_r2_c1" src="/images/neiye_r2_c1.jpg" width="101" height="14" border="0" id="neiye_r2_c1" alt=""></td>
-   <td colspan="11"><img name="neiye_r2_c2" src="/images/neiye_r2_c2.jpg" width="1002" height="14" border="0" id="neiye_r2_c2" alt=""></td>
-   <td><img name="neiye_r2_c13" src="/images/neiye_r2_c13.jpg" width="97" height="14" border="0" id="neiye_r2_c13" alt=""></td>
-   <td><img src="/images/spacer.gif" width="1" height="14" border="0" alt=""></td>
-  </tr>
-<tr>
-   <td rowspan="4"><img name="neiye_r3_c1" src="/images/neiye_r3_c1.jpg" width="101" height="209" border="0" id="neiye_r3_c1" alt="" /></td>
-   <td rowspan="4">
+<div id="content">
 <%=  render "common/left"%>
-   </td>
-   <td colspan="3" background="/images/neiye_r3_c3.jpg" class="css"><div align="center">&nbsp;&nbsp;&nbsp;&nbsp; 学员之家</div></td>
-   <td colspan="3" background="/image/neiyetiao.jpg">&nbsp;</td>
-   <td colspan="4" class="banquan"  background="/image/neiyetiao.jpg"><span  class="banquan"> <%=forum_tab @article.forum ? @article.forum : @article.father_forum%></span></td>
-   <td><img name="neiye_r3_c13" src="/images/neiye_r3_c13.jpg" width="97" height="40" border="0" id="neiye_r3_c13" alt="" /></td>
-   <td><img src="/images/spacer.gif" width="1" height="40" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td colspan="10"><div align="center" class="neiyebiaoti"><%=@article.title%></div></td>
-   <td><img name="neiye_r4_c13" src="/images/neiye_r4_c13.jpg" width="97" height="51" border="0" id="neiye_r4_c13" alt="" /></td>
-   <td><img src="/images/spacer.gif" width="1" height="51" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td colspan="10"><div align="right"><span class="zw">发布时间：</span><span class="riqi"><%=@article.updated_at.strftime("%Y-%m-%d")%></span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="zw">来源：小船长网站 &nbsp;&nbsp;&nbsp;&nbsp; 作者：<%=@article.author%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; </span></div></td>
-   <td><img name="neiye_r5_c13" src="/images/neiye_r5_c13.jpg" width="97" height="37" border="0" id="neiye_r5_c13" alt="" /></td>
-   <td><img src="/images/spacer.gif" width="1" height="37" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td rowspan="2" bgcolor="#FEFDF9">&nbsp;</td>
-   <td rowspan="2" colspan="8"  bgcolor="#FEFDF9">
-    <div style="width:736px;">
-      <%=raw @article.context%>
-   </div></td>
-   <td rowspan="2"  bgcolor="#FEFDF9">&nbsp;</td>
-   <td rowspan="2"><img name="neiye_r6_c13" src="/images/neiye_r6_c13.jpg" width="97" height="216" border="0" id="neiye_r6_c13" alt="" /></td>
-   <td><img src="/images/spacer.gif" width="1" height="81" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td><img name="neiye_r7_c1" src="/images/neiye_r7_c1.jpg" width="101" height="135" border="0" id="neiye_r7_c1" alt="" /></td>
-   <td><img style="margin-left:10px;" name="neiye_r7_c2" src="/images/neiye_r7_c2.jpg" width="205" height="135" border="0" id="neiye_r7_c2" alt="" usemap="#qq" /></td>
-   <td><img src="/images/spacer.gif" width="1" height="135" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td><img name="neiye_r8_c1" src="/images/neiye_r8_c1.jpg" width="101" height="17" border="0" id="neiye_r8_c1" alt="" /></td>
-   <td><img name="neiye_r8_c2" src="/images/neiye_r8_c2.jpg" width="205" height="17" border="0" id="neiye_r8_c2" alt="" /></td>
-   <td colspan="10"><img name="neiye_r8_c3" src="/images/neiye_r8_c3.jpg" width="797" height="17" border="0" id="neiye_r8_c3" alt="" /></td>
-   <td><img name="neiye_r8_c13" src="/images/neiye_r8_c13.jpg" width="97" height="17" border="0" id="neiye_r8_c13" alt="" /></td>
-   <td><img src="/images/spacer.gif" width="1" height="17" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td><img name="neiye_r9_c1" src="/images/neiye_r9_c1.jpg" width="101" height="34" border="0" id="neiye_r9_c1" alt="" /></td>
-   <td><img name="neiye_r9_c2" src="/images/neiye_r9_c2.jpg" width="205" height="34" border="0" id="neiye_r9_c2" alt="" /></td>
-   <td colspan="4"><img name="neiye_r9_c3" src="/images/neiye_r9_c3.jpg" width="173" height="34" border="0" id="neiye_r9_c3" alt="" /></td>
-   <td colspan="4" background="/image/neiyexian.jpg">&nbsp;</td>
-   <td colspan="2"><img name="neiye_r9_c11" src="/images/neiye_r9_c11.jpg" width="41" height="34" border="0" id="neiye_r9_c11" alt="" /></td>
-   <td><img name="neiye_r9_c13" src="/images/neiye_r9_c13.jpg" width="97" height="34" border="0" id="neiye_r9_c13" alt="" /></td>
-   <td><img src="/images/spacer.gif" width="1" height="34" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td><img name="neiye_r10_c1" src="/images/neiye_r10_c1.jpg" width="101" height="104" border="0" id="neiye_r10_c1" alt="" /></td>
-   <td><img name="neiye_r10_c2" src="/images/neiye_r10_c2.jpg" width="205" height="104" border="0" id="neiye_r10_c2" alt="" /></td>
-   <td colspan="2"><img name="neiye_r10_c3" src="/images/neiye_r10_c3.jpg" width="42" height="104" border="0" id="neiye_r10_c3" alt="" /></td>
-   <% re_articles = Article.find(:all,:conditions=>["(forum_id = ? or first_forum_id = ? ) and id !=#{@article.id}",@article.forum_id,@article.first_forum_id],:limit=>3) %>
-   <td colspan="5" class="zw" bgcolor="#FEFDF9">
-    <%re_articles.each do |a|%>
-    <a href="/homes/articles/<%=a.id%>" style="bgcolor="#FEFDF9""><span title = "<%=a.title%>"><%=a.title%><span><br />
-    <%end%>
-   <td colspan="2" class="zw" bgcolor="#FEFDF9">
-    <%re_articles.each do |a|%>
-    <span style="width:60px;"><%=a.updated_at.strftime("%Y-%m-%d")%></span><br />
-    <%end%>
 
-   <td colspan="2"><img name="neiye_r10_c11" src="/images/neiye_r10_c11.jpg" width="41" height="104" border="0" id="neiye_r10_c11" alt="" /></td>
-   <td><img name="neiye_r10_c13" src="/images/neiye_r10_c13.jpg" width="97" height="104" border="0" id="neiye_r10_c13" alt="" /></td>
-   <td><img src="/images/spacer.gif" width="1" height="104" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td><img name="neiye_r11_c1" src="/images/neiye_r11_c1.jpg" width="101" height="26" border="0" id="neiye_r11_c1" alt="" /></td>
-   <td><img name="neiye_r11_c2" src="/images/neiye_r11_c2.jpg" width="205" height="26" border="0" id="neiye_r11_c2" alt="" /></td>
-   <td colspan="10"><img name="neiye_r11_c3" src="/images/neiye_r11_c3.jpg" width="797" height="26" border="0" id="neiye_r11_c3" alt="" /></td>
-   <td><img name="neiye_r11_c13" src="/images/neiye_r11_c13.jpg" width="97" height="26" border="0" id="neiye_r11_c13" alt="" /></td>
-   <td><img src="/images/spacer.gif" width="1" height="26" border="0" alt="" /></td>
-  </tr>
 
-</table>
-<map name="qq" id="qq">
+<div id="right">
+<div class="activity_top">
+<div class="activity_title"><img src="/image/activity/act_10.jpg"><span><%=@forum.name%></span></div>
+<div class="activity_location"> <%=forum_tab @forum%></div>
+<div class="activity_line"><img src="/image/activity/act_01.jpg"></div>
+</div>
 
-  <area shape="rect" coords="20,170,111,39" href="tencent://message?Uin=690294000" />
+<div class="inside_content">
+<h3><%=@article.title%></h3>
+<div class="inside_from">发布时间：<span><%=@article.updated_at.strftime("%Y-%m-%d")%></span>&nbsp;&nbsp; &nbsp; &nbsp;来源：小船长网站&nbsp;&nbsp; &nbsp; &nbsp;作者：<%=@article.author%></div>
+<div class="inside_text">
+ <%=raw @article.context%>
+</div>
+</div>
 
-</map>
+ <% re_articles = Article.find(:all,:conditions=>["(forum_id = ? or first_forum_id = ? ) and id !=#{@article.id}",@article.forum_id,@article.first_forum_id],:limit=>3) %>
+<div class="inside_theme">
+<div class="theme_title"><span>相关主题...</span></div>
+<ul class="theme_list">
+  <%re_articles.each do |a|%>
+  <li><a href="/homes/articles/<%=a.id%>"><%=a.title%></a>
+    <div class="theme_data"><%=a.updated_at.strftime("%Y-%m-%d")%></div>
+  </li>
+  <%end%>
+</ul>
+</div>
+
+
+
+</div>
+
+</div>

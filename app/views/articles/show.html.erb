@@ -26,8 +26,9 @@
 
             <p>
             <label class="required">封面</label><br>
-               <%#= image_tag( @article.picture.url(:thumb), :alt => @article.title) if @article.picture %>
-                <%= image_tag( @article.picture1, :alt => @article.title,:width=>100) if @article.picture1 %>
+               <%if @article.picture1 and @article.picture1 != ""%>
+          <%= image_tag(@article.picture1,:width=>100)%>
+          <%end%>
           </p>
 
           <p>

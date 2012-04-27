@@ -9,14 +9,30 @@
      <div class="wrapper">
        <!-- Left column/section --> 
        <section class="column  first" style ="width:880px;">
-          <div id="add_user" class="dataTables_length">
-             <%= link_to '新增文章', new_article_path %></div>
-             <div id="example_filter" class="dataTables_filter">
-               <form action='/articles', method='get'>
-                 根据文章标题查找:
-                 <input type="text" name = "title" value="<%=params[:title]%>">
-                 <input type="submit" class="btn btn-green big" value="提交"></form>
-             </div>
+                      <form action='/articles', method='get'>
+                  <div style="float:left">
+                     <%= link_to '新增文章', new_article_path %>
+                   
+                 </div>
+                   <div style="float:right">
+                    <div style="float:left">
+                      根据版块查找:
+              <select id="forum_id_" name="forum_id">
+              <option value="">--请选择版块--</option>
+              <%Forum.all.collect {|p| [ p.name, p.id ]}.each do |k,v|%>
+               <option value="<%=v%>" <%= "selected" if params[:forum_id] ==v.to_s %>><%=k%></option>
+              <%end%>
+             
+              </select>
+
+                    </div>
+                    <div style="float:right">
+                       根据文章标题查找:
+                     <input type="text" name = "title" value="<%=params[:title]%>">
+                     <input type="submit" class="btn btn-green big" value="提交">
+                    </div>
+                   </div>
+                 </form>
           <table class="display stylized" id="example">
            <thead>
                  <tr>
@@ -56,7 +72,7 @@
                                  </tr>
                                  <%end%></tbody>
           </table>
-           <%= will_paginate @article , :params =>{:title=> params[:title]} %>
+           <%= will_paginate @article , :params =>{:title=> params[:title],:forum_id=>params[:forum_id]} %>
           <div class="clear">&nbsp;</div>
 
                              </section>

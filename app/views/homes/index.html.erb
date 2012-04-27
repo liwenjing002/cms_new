@@ -1,163 +1,95 @@
-
-<table border="0" cellpadding="0" cellspacing="0" width="1200">
-<!-- fwtable fwsrc="index.png" fwpage="页面 1" fwbase="index.jpg" fwstyle="Dreamweaver" fwdocid = "2028400732" fwnested="0" -->
-  <tr>
-   <td><img src="images/spacer.gif" width="101" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="25" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="352" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="357" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="19" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="11" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="17" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="24" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="73" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="71" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="25" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="14" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="14" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="97" height="1" border="0" alt="" /></td>
-   <td><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td>
-  </tr>
-
-  <tr>
-   <td rowspan="7"><img name="index_r2_c1" src="images/index_r2_c1.jpg" width="101" height="195" border="0" id="index_r2_c1" alt="" /></td>
-   <td rowspan="7" colspan="4">
-   <%if Forum.find_by_code("index") && Forum.find_by_code("index").picture1%>
-   <%@forum = Forum.find_by_code("index")%>
-    <%#= image_tag( @forum.picture1.url(:thumb), :alt => @forum.title,:width=>"763" ,:height=>"187" ,:border=>"0") if @forum.picture1 %>
-    <%= image_tag(@forum.picture1, :alt => @forum.name,:width=>"753" ,:height=>"195" ,:border=>"0",:id=>"index_r2_c2" ,:alt=>"" ) if @forum.picture1 && @forum.picture1 != ''%>
-    <%else%>
-    <img name="index_r2_c2" src="images/index_r2_c2.jpg" width="753" height="195" border="0" id="index_r2_c2" alt="" />
+<div id="content">
+<div id="banner">
+<div class="banner_pic">
+  <%index = Forum.find_by_code("index")%>
+  <%if index and index.picture1 and index.picture1!=""%>
+  <%= image_tag(index.picture1,:width=>754,:hieght=>186)%>
+  <%else%>
+  <img src="/image/index/index_03.jpg">
   <%end%>
-  </td>
-   <td colspan="8"><img name="index_r2_c6" src="images/index_r2_c6.jpg" width="249" height="15" border="0" id="index_r2_c6" alt="" /></td>
-   <td><img name="index_r2_c14" src="images/index_r2_c14.jpg" width="97" height="15" border="0" id="index_r2_c14" alt="" /></td>
-   <td><img src="images/spacer.gif" width="1" height="15" border="0" alt="" /></td>
+</div>
+<div class="login">
+<div class="login_title">会员登录<span>Login</span></div>
+<table>
+  <tbody><tr>
+    <td width="60">用户名：</td>
+    <td><input name="" type="text"></td>
   </tr>
   <tr>
-   <td rowspan="6"><img name="index_r3_c6" src="images/index_r3_c6.jpg" width="11" height="180" border="0" id="index_r3_c6" alt="" /></td>
-   <td colspan="7"><img name="index_r3_c7" src="images/index_r3_c7.jpg" width="238" height="41" border="0" id="index_r3_c7" alt="" /></td>
-   <td rowspan="6"><img name="index_r3_c14" src="images/index_r3_c14.jpg" width="97" height="180" border="0" id="index_r3_c14" alt="" /></td>
-   <td><img src="images/spacer.gif" width="1" height="41" border="0" alt="" /></td>
+    <td width="60">密 码：</td>
+    <td><input name="" type="text"></td>
   </tr>
-  <tr>
-   <td rowspan="4"><img name="index_r4_c7" src="images/index_r4_c7.jpg" width="17" height="121" border="0" id="index_r4_c7" alt="" /></td>
-   <td colspan="4"> <span class="css">用户名：</span>
-<input type="text" class="user" name="txtUserName" style="color:#999; width:106px; height:15px;"  id="txtUserName" value="" onclick="this.value=&#39;&#39;">   </td>
-   <td rowspan="5" colspan="2"><img name="index_r4_c12" src="images/index_r4_c12.jpg" width="28" height="139" border="0" id="index_r4_c12" alt="" /></td>
-   <td><img src="images/spacer.gif" width="1" height="30" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td colspan="4">  <span class="css">密&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
-<input type="password" name="txtPassword"  style="color:#999; width:106px; height:15px;" id="txtPassword" value="" onfocus="this.value=&#39;&#39;" /></td>
-   <td><img src="images/spacer.gif" width="1" height="37" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td rowspan="2"><img name="index_r6_c8" src="images/index_r6_c8.jpg" width="24" height="54" border="0" id="index_r6_c8" alt="" /></td>
-   <td colspan="3"><img name="index_r6_c9" src="images/index_r6_c9.jpg" width="169" height="11" border="0" id="index_r6_c9" alt="" /></td>
-   <td><img src="images/spacer.gif" width="1" height="11" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td><img src="images/index_r7_c9.jpg" alt="" name="index_r7_c9" width="73" height="43" border="0" usemap="#index_r7_c9Map" id="index_r7_c9" /></td>
-   <td><img src="images/index_r7_c10.jpg" alt="" name="index_r7_c10" width="71" height="43" border="0" usemap="#index_r7_c10Map" id="index_r7_c10" /></td>
-   <td><img name="index_r7_c11" src="images/index_r7_c11.jpg" width="25" height="43" border="0" id="index_r7_c11" alt="" /></td>
-   <td><img src="images/spacer.gif" width="1" height="43" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td colspan="5"><img name="index_r8_c7" src="images/index_r8_c7.jpg" width="210" height="18" border="0" id="index_r8_c7" alt="" /></td>
-   <td><img src="images/spacer.gif" width="1" height="18" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td rowspan="3"><img name="index_r9_c1" src="images/index_r9_c1.jpg" width="101" height="259" border="0" id="index_r9_c1" alt="" /></td>
-   <td rowspan="3" colspan="4"><table width="100%" height="83%" border="0">
-     <tr>
-       <td width="1%" height="255">&nbsp;</td>
-       <td width="99%"   bgcolor="#FFA342">
+</tbody></table>
+<div class="login_button"><input class="button01" name="" type="button" value="登 录"><input class="button02" name="" type="button" value="注 册"></div>
 
-       <object  width="737" height="165">
-      <param name="movie" value="brandingboard.swf?xmlURL=xixi.xml&timerDelay=3" />
-      <param name="quality" value="high" />
-        <embed src="brandingboard.swf?xmlURL=xixi.xml&timerDelay=3" quality="high" type="application/x-shockwave-flash" width="737" height="165"></embed>
-      </object>
+</div>
+</div>
 
-       </td>
-     </tr>
-   </table></td>
-   <td colspan="8"><img name="index_r9_c6" src="images/index_r9_c6.jpg" width="249" height="51" border="0" id="index_r9_c6" alt="" /></td>
-   <td rowspan="3"><img name="index_r9_c14" src="images/index_r9_c14.jpg" width="97" height="259" border="0" id="index_r9_c14" alt="" /></td>
-   <td><img src="images/spacer.gif" width="1" height="51" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td rowspan="2"><img name="index_r10_c6" src="images/index_r10_c6.jpg" width="11" height="208" border="0" id="index_r10_c6" alt="" /></td>
-   <td colspan="6">
-    <%Forum.find_by_code("huodong").articles_father.limit(5).each do|article|%>
-    <p><span class="biaoti" title = "<%=article.small_title%>" >【<%=strip_html(article.small_title,4,"")%>】</span><a href="/homes/articles/<%=article.id%>" title="<%=article.title%>"><span class="css" title = "<%=article.title%>" ><%=strip_html(article.title,10,"")%></span></a></p>
-    <%end%>
-    
-    </td>
-   <td rowspan="2"><img name="index_r10_c13" src="images/index_r10_c13.jpg" width="14" height="208" border="0" id="index_r10_c13" alt="" /></td>
-   <td><img src="images/spacer.gif" width="1" height="197" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td colspan="6"><img name="index_r11_c7" src="images/index_r11_c7.jpg" width="224" height="11" border="0" id="index_r11_c7" alt="" /></td>
-   <td><img src="images/spacer.gif" width="1" height="11" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td rowspan="2"><img name="index_r12_c1" src="images/index_r12_c1.jpg" width="101" height="157" border="0" id="index_r12_c1" alt="" /></td>
-   <td rowspan="2"><img name="index_r12_c2" src="images/index_r12_c2.jpg" width="25" height="157" border="0" id="index_r12_c2" alt="" /></td>
-   <td background="/images/index_r12_c3.jpg"><a href="/homes/forums/<%=Forum.find_by_code("ketang").id%>"><span class="baibiao" style="margin-left:10px;"><%=Forum.find_by_code("ketang").name%></span></a></td>
-   <td background="/images/index_r12_c4.jpg"><a href="/homes/forums/<%=Forum.find_by_code("xuexiyuandi").id%>"><span class="baibiao" style="margin-left:20px;"><%=Forum.find_by_code("xuexiyuandi").name%></span></a></td>
-   <td colspan="9"><img name="index_r12_c5" src="images/index_r12_c5.jpg" width="268" height="46" border="0" id="index_r12_c5" alt="" /></td>
-   <td rowspan="2"><img name="index_r12_c14" src="images/index_r12_c14.jpg" width="97" height="157" border="0" id="index_r12_c14" alt="" /></td>
-   <td><img src="images/spacer.gif" width="1" height="46" border="0" alt="" /></td>
-  </tr>
-  <tr>
-   <td>
-    <%Forum.find_by_code("ketang").articles.limit(5).each do|article|%>
-    <p><span class="biaoti">【<%=strip_html(article.small_title,7,"")%>】</span><a href="/homes/articles/<%=article.id%>" ><span class="css" title = "<%=article.title%>" ><%=strip_html(article.title,17,"")%></a></span></p>
-    <%end%>
-    
-  </td>
-   <td>
-    <%Forum.find_by_code("xuexiyuandi").articles.limit(5).each do|article|%>
-    <p><span class="biaoti">【<%=strip_html(article.small_title,7,"")%>】</span><a href="/homes/articles/<%=article.id%>"><span class="css" title = "<%=article.title%>" ><%=strip_html(article.title,17,"")%></a></span></p>
-    <%end%>
-   </td>
-  <td colspan="9" background="images/index_r13_c5.jpg"><table width="258" height="73" border="0">
-     <tbody><tr>
-       <td width="107" height="21">&nbsp;</td>
-       <td width="141"><span class="biaoti">小船长教育</span>&nbsp;&nbsp;<span class="zw"> 浙江杭州</span></td>
-     </tr>
-     <tr>
-       <td height="46">&nbsp;</td>
-       <td><wb:follow-button uid="<%=@web_info.weibo%>" type="red_1" width="63" height="24" ></wb:follow-button></td>
-     </tr>
-   </tbody></table></td>
-   <div style="display:none"><wb:follow-button uid="1782515283" type="red_2" width="136" height="24" ></wb:follow-button></div>
-   <td><img src="images/spacer.gif" width="1" height="111" border="0" alt="" /></td>
-  </tr>
- 
-</table>
-<map name="index_r13_c5Map" id="index_r13_c5Map">
-  <area shape="rect" coords="114,20,245,43" href="" />
-  <area shape="rect" coords="115,46,206,78" href="" />
-</map>
+<div id="index_left">
+<div class="focus"><img src="/image/index/index_07.jpg"></div><!--焦点图 -->
 
-<map name="index_r7_c10Map" id="index_r7_c10Map">
-  <area shape="rect" coords="14,4,56,27" href="#" />
-</map>
+<div class="news">
+<div class="learing">
+<div class="learing_title">
+  <%ketang=Forum.find_by_code("ketang")%>
+  <div class="title_X"><%=ketang.name%></div><a href="/homes/forums/<%=ketang.id%>">更多<img src="/image/index/index_12.jpg" border="0"></a></div>
+<ul class="learning_content">
+<%ketang.articles_father.limit(5).each do |a|%>
+<li><span>【<%=a.small_title%>】</span>
+  <%= link_to a.title, "/homes/articles/#{a.id}",:target=>"_blank",:title=>a.title %>
+</li>
+<%end%>
+</ul>
+</div>
 
-<map name="index_r7_c9Map" id="index_r7_c9Map">
-  <area shape="rect" coords="18,8,61,28" href="#" />
-</map>
+<div class="learing">
+<div class="learing_title">
+<%yuandi=Forum.find_by_code("xuexiyuandi")%>
+  <div class="title_X">学习园地</div><a href="/homes/forums/<%=yuandi.id%>">更多<img src="/image/index/index_12.jpg" border="0"></a></div>
+<ul class="learning_content">
+<%yuandi.articles_father.limit(5).each do |a|%>
+<li><span>【<%=a.small_title%>】</span>
+  <%= link_to a.title, "/homes/articles/#{a.id}",:target=>"_blank",:title=>a.title %>
+</li>
+<%end%>
+</ul>
+</div>
+</div>
 
-<map name="index_r12_c3Map" id="index_r12_c3Map">
-  <area shape="rect" coords="269,14,334,35" href="/homes/forums/<%=Forum.find_by_code("ketang").id%>" />
-</map>
-
-<map name="index_r12_c4Map" id="index_r12_c4Map">
-  <area shape="rect" coords="284,14,342,35" href="/homes/forums/<%=Forum.find_by_code("xuexiyuandi").id%>" />
-</map>
+</div>
 
 
+<div id="index_right">
+<div class="right_activity">
+<div class="activity_title"><%=Forum.find_by_code("huodong").name%><span>What's On</span></div>
+<ul class="activity_content">
+  <%huodong_index = Forum.find_by_code("huodong")%>
+  <%huodong_index.articles_father.limit(5).each do |a|%>
+<li><span>【<%=a.small_title%>】</span>
+  <%= link_to a.title, "/homes/articles/#{a.id}",:target=>"_blank",:title=>a.title %>
+</li>
+<%end%>
+</ul>
+</div>
 
+<div class="right_weibo">
+<div class="weibo_title">微博互动<span>Interactive</span></div>
+<div class="weibo_content">
+<div class="weibo_pic"><img src="/image/index/index_02.jpg"></div>
+<div class="weibo_text">
+<table>
+  <tbody><tr>
+    <td><span>小船长教育</span></td>
+    <td>浙江杭州</td>
+  </tr>
+  <tr>
+    <td colspan="2"><wb:follow-button uid="<%=@web_info.weibo%>" type="red_1" width="136" height="24" ></wb:follow-button></td>
+    </tr>
+</tbody></table>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>

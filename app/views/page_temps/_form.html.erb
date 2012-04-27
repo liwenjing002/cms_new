@@ -1,6 +1,6 @@
 <%#= javascript_include_tag :ckeditor %>
 <%= javascript_include_tag "prototype" %>
-<div id="page" style="height:500px">
+<div id="page" >
   <!-- Wrapper -->
   <div class="wrapper">
     <!-- Left column/section -->
@@ -24,7 +24,7 @@
 
           <p>
             <label class="required" for="name">模板类型</label><br/>
-           <%= select( :page_temp,:temp_type, [["主页"],["页头"],["页尾"],["栏目"],["文章"],["课程"]]) %>
+           <%= select( :page_temp,:temp_type, [["主页"],["页头"],["页尾"],["栏目"],["文章"],["课程"],["左侧导航"]]) %>
           </p>
           </p>
 
@@ -36,8 +36,8 @@
 
           <p>
             <label class="required" for="name">模板描述</label><br/>
-            <%= f.text_area :content,:id => "kindeditor" %>
-            <!--
+            <%= f.text_area :content,:cols=>"100"%>
+            <!--,:id => "kindeditor" 
              <%= f.cktext_area  :content,:input_html => {},:language=>"zh-cn",:cols=>"180"%>-->
           </p>
 
