@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'jquery-1.4.2.min' %>
+<%= javascript_include_tag 'jquery.validate_pack' %>
 <div id="content">
 <%if create_html_left%>
        <%= raw create_html_left  %>
@@ -26,6 +28,9 @@
         <% end %>
       <%end%>
 
+<%if notice%>
+ <div class="box box-info"><%=notice%></div>
+ <%end%>
       <%= simple_form_for(@apply) do |f| %>
         <fieldset>
           <legend>在线报名</legend>
@@ -36,26 +41,21 @@
           </p>
 
           <p>
-            <label class="required" for="name">邮箱</label><br/>
+            <label class="required" for="email">邮箱</label><br/>
             <%= f.text_field :email,:class=>"half" %>
           </p>
           <p>
-            <label class="required" for="name">联系电话</label><br/>
+            <label class="required" for="phone">联系电话</label><br/>
             <%= f.text_field :phone,:class=>"half" %>
           </p>
           <p>
-            <label class="required" for="name">qq</label><br/>
+            <label class="required" for="qq">qq</label><br/>
             <%= f.text_field :qq,:class=>"half" %>
           </p>
           <p>
-            <label class="required" for="name">留言</label><br/>
+            <label class="required" for="memo">留言</label><br/>
             <%= f.text_field :memo,:class=>"half" %>
           </p>
-          <p>
-            <label class="required" for="name">网站链接</label><br/>
-            <%= f.text_field :email,:class=>"half" %>
-          </p>
-
           <p class="box"><input type="submit" class="btn btn-green big" value="提交"/>
             or
             <input type="reset" class="btn" value="重置"/>
@@ -73,3 +73,60 @@
 </div>
 
 </div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+  var validator = $("#new_apply").validate({
+
+    rules: {
+
+      "apply[name]" : "required",
+      "apply[email]" : "required",
+      "apply[phone]" : "required",
+      "apply[qq]" : "required",
+      "apply[memo]" : "required",
+    },
+
+    messages: {
+      "apply[name]" : "该项不为空",
+      "apply[email]" : "该项不为空",
+      "apply[phone]" : "该项不为空",
+      "apply[qq]" : "该项不为空",
+      "apply[memo]" : "该项不为空"
+    },
+
+    // the errorPlacement has to take the layout into account
+
+    errorPlacement: function(error, element) {
+
+      error.insertAfter(element.parent().find('label:first'));
+
+    },
+
+    // specifying a submitHandler prevents the default submit, good for the demo
+
+    submitHandler: function() {
+
+      document.getElementById("new_apply").submit();
+    },
+
+    // set new class to error-labels to indicate valid fields
+
+    success: function(label) {
+
+      // set &nbsp; as text for IE
+
+      label.html("&nbsp;").addClass("ok");
+
+    }
+
+  });
+
+
+
+
+});
+
+</script>

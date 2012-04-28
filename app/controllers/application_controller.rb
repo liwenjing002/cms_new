@@ -26,7 +26,8 @@ class ApplicationController < ActionController::Base
 
     if session[:is_login] || request.request_uri== "/users/login"|| request.request_uri== "/users/login.html"||
         request.parameters[:controller] == "homes" || session[:return_to] == "/"||
-        request.parameters[:action] == "connect_us"
+        request.parameters[:action] == "connect_us" ||
+        (request.parameters[:controller] == "applies" and request.parameters[:action] == "create")
       return 
     else
       session[:return_to] = request.request_uri

@@ -48,7 +48,7 @@ class AppliesController < ApplicationController
 
     respond_to do |format|
       if @apply.save
-        format.html { redirect_to(@apply, :notice => 'Apply was successfully created.') }
+        format.html { redirect_to("/homes/apply", :notice => '报名成功') }
         format.xml  { render :xml => @apply, :status => :created, :location => @apply }
       else
         format.html { render :action => "new" }
