@@ -9,6 +9,12 @@ class HomesController < ApplicationController
 
   end
 
+
+  def apply
+    @forum = Forum.find_by_code("index")
+     @apply = Apply.new
+  end
+
   def get_head
     @web_info = WebInfo.find(:all)[0]
     @forum_first = Forum.find(:all,:conditions=>["father_id is null and order_num > 0 and order_num <11 and code !='index'"],:order=>"order_num asc")

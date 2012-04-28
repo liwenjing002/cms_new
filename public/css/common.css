@@ -156,8 +156,55 @@ margin-top:20px;
 
 
 
+legend {
+	background:#fff;
+	color:#93BB3A;
+	font-weight:bold;
+	padding:0 6px 0 0;
+}
+label {
+	font-size:11px;
+	text-transform:uppercase;
+	font-weight:bold;
+}
+label.required:before {
+	content:"*";
+	color:red;
+	font-family:"Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
+}
+label.ok {
+	background:url("/images/valid.gif") no-repeat;
+	padding-left:16px;
+}
+label.error {
+	color:#d00;
+	text-transform:none;
+	margin-left:6px;
+}
+label.choice {
+	vertical-align:middle;
+	font-weight:normal;
+	text-transform:none;
+}
+fieldset small {
+	color:#999;
+	font-size:11px;
+	display: block;
+}
 
 
 
 
 
+.btn-green {
+	color: #fff !important;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.25);
+	border:1px solid #749217 !important;
+	background-color: #6AB620 !important;
+}
+.btn-green:hover, .btn-green:focus, .btn-green:active {
+	-moz-box-shadow:0 0 5px rgba(116, 146, 23, 0.9);
+	-webkit-box-shadow: 0 0 5px rgba(116, 146, 23, 0.9);
+	box-shadow: 0 0 5px rgba(116, 146, 23, 0.9);
+	border:1px solid #749217 !important;
+}

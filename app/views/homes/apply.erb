@@ -1,0 +1,75 @@
+<div id="content">
+<%if create_html_left%>
+       <%= raw create_html_left  %>
+       <%else%>
+        <%=  render "common/left"%>
+ <%end%>
+
+
+<div id="right">
+	<div class="activity_top">
+	<div class="activity_title"><img src="/image/activity/act_10.jpg"><span>在线报名</span></div>
+	<div class="activity_location"> <%=forum_tab @forum%></div>
+	<div class="activity_line"><img src="/image/activity/act_01.jpg"></div>
+	</div>
+
+
+
+  <!-- Wrapper -->
+  <div class="wrapper">
+    <!-- Left column/section -->
+    <section class="column width6 first">
+
+      <% if @apply.errors.any? %>
+        <% @apply.errors.full_messages.each do |msg| %>
+          <div class="box box-info"><%=msg%></div>
+        <% end %>
+      <%end%>
+
+      <%= simple_form_for(@apply) do |f| %>
+        <fieldset>
+          <legend>在线报名</legend>
+
+          <p>
+            <label class="required" for="name">姓名</label><br/>
+            <%= f.text_field :name,:class=>"half" %>
+          </p>
+
+          <p>
+            <label class="required" for="name">邮箱</label><br/>
+            <%= f.text_field :email,:class=>"half" %>
+          </p>
+          <p>
+            <label class="required" for="name">联系电话</label><br/>
+            <%= f.text_field :phone,:class=>"half" %>
+          </p>
+          <p>
+            <label class="required" for="name">qq</label><br/>
+            <%= f.text_field :qq,:class=>"half" %>
+          </p>
+          <p>
+            <label class="required" for="name">留言</label><br/>
+            <%= f.text_field :memo,:class=>"half" %>
+          </p>
+          <p>
+            <label class="required" for="name">网站链接</label><br/>
+            <%= f.text_field :email,:class=>"half" %>
+          </p>
+
+          <p class="box"><input type="submit" class="btn btn-green big" value="提交"/>
+            or
+            <input type="reset" class="btn" value="重置"/>
+          </p>
+
+        </fieldset>
+
+      <%end%>
+
+
+  <!-- End of Wrapper -->
+</div>
+
+
+</div>
+
+</div>

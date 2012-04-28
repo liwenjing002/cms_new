@@ -55,6 +55,7 @@ match '/homes/forums/:id/',
   resources :events
   resources :homes do
       collection do
+        get :apply
         get :forums
         get :articles
         get :read

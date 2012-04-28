@@ -1,6 +1,7 @@
 <div id="left">
 <div class="left_menu">
-<div class="left_menu_title"><span><%=@forum.name%></span></div>
+  <%@forum =Forum.find_by_code("index") if !@forum%>
+<div class="left_menu_title"><span><%=!@forum.name%></span></div>
 <%if@forum.children and @forum.children.length !=0%>
 <%forum_left = @forum.children%>
 <%else%>

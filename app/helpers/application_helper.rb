@@ -69,8 +69,10 @@ module ApplicationHelper
       if forum.father!= nil
         return    link_to("首页","/") +  " > >  "+  link_to(forum.father.name,"/homes/forums/#{forum.father.id}")+  ">> "+  link_to(forum.name,"/homes/forums/#{forum.id}")
       end
-    
+    else
+       return    link_to("首页","/") 
     end
+
   end
 
 
