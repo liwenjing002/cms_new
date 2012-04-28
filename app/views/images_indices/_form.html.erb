@@ -1,0 +1,84 @@
+<%#= javascript_include_tag :ckeditor %>
+<%= javascript_include_tag "prototype" %>﻿
+    <script>
+      KindEditor.ready(function(K) {
+        var editor = K.editor({
+          allowFileManager : true, 
+          uploadJson : '/kindeditor/upload',
+          fileManagerJson : '/kindeditor/images_list'
+        });
+        K('#image1').click(function() {
+          editor.loadPlugin('image', function() {
+            editor.plugin.imageDialog({
+              imageUrl : K('#small_img').val(),
+              clickFn : function(url, title, width, height, border, align) {
+                K('#small_img').val(url);
+                editor.hideDialog();
+              }
+            });
+          });
+        });
+
+             K('#image2').click(function() {
+          editor.loadPlugin('image', function() {
+            editor.plugin.imageDialog({
+              imageUrl : K('#img').val(),
+              clickFn : function(url, title, width, height, border, align) {
+                K('#img').val(url);
+                editor.hideDialog();
+              }
+            });
+          });
+        });
+
+
+      });
+    </script>
+<div id="page" style="height:500px">
+  <!-- Wrapper -->
+  <div class="wrapper">
+    <!-- Left column/section -->
+   
+    <section class="column width6 first">
+
+      <h3>新增/编辑首页滚动图片</h3>
+
+      <form accept-charset="UTF-8" action="/images_indices" class="simple_form images_index" enctype="multipart/form-data" id="new_images_index" method="POST">
+        <fieldset>
+          <legend>新增/编辑首页滚动图片</legend>
+          <input type="hidden" name="images_index[id]" value="<%=@images_index.id%>">
+          <p>
+            <label class="required" for="name">首页滚动图片标题</label><br>
+            <input class="half" id="images_index_name" name="images_index[title]" size="30" type="text" value="<%=@images_index.title%>">
+          </p>
+
+          <p>
+            <label class="required" for="name">首页滚动图片链接</label><br>
+            <input class="half" id="images_index_desc" name="images_index[link]" size="30" type="text" value="<%=@images_index.link%>">
+          </p>
+
+           <p>
+            <label class="required" for="name">首页滚动图片小图</label><br>
+            <input class="half" id="small_img" name="images_index[small_img]" size="30" type="text" value="<%=@images_index.small_img%>">
+            <input type="button" id="image1" value="选择小图" />
+          </p>
+
+           <p>
+            <label class="required" for="name">首页滚动图片大图</label><br>
+            <input class="half" id="img" name="images_index[img]" size="30" type="text" value="<%=@images_index.img%>">
+            <input type="button" id="image2" value="选择版大图" />
+          </p>
+
+           <p>
+            <label class="required" for="name">首页滚动图片跳转方式</label><br>
+            <input class="half" id="images_index_desc" name="images_index[target]" size="30" type="text" value="<%=@images_index.target%>">
+          </p>
+
+            <p class="box"><input type="submit" class="btn btn-green big" value="提交">  
+      
+  </fieldset></form></section>
+
+  </div>
+
+  <!-- End of Wrapper -->
+</div>

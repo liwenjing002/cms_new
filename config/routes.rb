@@ -1,6 +1,8 @@
 Huanhao::Application.routes.draw do
 
 
+  resources :images_indices
+
   resources :question_result_details
 
   resources :question_results
