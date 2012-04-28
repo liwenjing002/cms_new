@@ -4,7 +4,7 @@
 <%if create_html_left%>
        <%= raw create_html_left  %>
        <%else%>
-       
+
         <%=  render "common/left"%>
  <%end%>
 <%= javascript_include_tag 'jquery.validate_pack' %>
@@ -55,7 +55,7 @@
           </p>
           <p>
             <label class="required" for="memo">留言</label><br/>
-            <%= f.text_field :memo,:class=>"half" %>
+            <%= f.text_area:memo,:class=>"half",:rows=>"10" %>
           </p>
           <p class="box"><input type="submit" class="btn btn-green big" value="提交"/>
             or
