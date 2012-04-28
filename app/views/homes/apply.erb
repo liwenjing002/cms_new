@@ -1,12 +1,13 @@
-<%= javascript_include_tag 'jquery-1.4.2.min' %>
-<%= javascript_include_tag 'jquery.validate_pack' %>
+
+
 <div id="content">
 <%if create_html_left%>
        <%= raw create_html_left  %>
        <%else%>
+       
         <%=  render "common/left"%>
  <%end%>
-
+<%= javascript_include_tag 'jquery.validate_pack' %>
 
 <div id="right">
 	<div class="activity_top">
