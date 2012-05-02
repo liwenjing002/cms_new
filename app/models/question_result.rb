@@ -45,7 +45,9 @@ class QuestionResult < ActiveRecord::Base
 
 
 		data.each do |k,v|
-		 data_array.push([k,data[k]])
+			data_temp = Array.new
+		 data_temp.push([k,data[k]])
+		 data_array.push(data_temp)
 		end
 
 		return data_array
