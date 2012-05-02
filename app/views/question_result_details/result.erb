@@ -1,16 +1,6 @@
 
 <script type="text/javascript">
 
-function doPrint() { 
-bdhtml=window.document.body.innerHTML; 
-sprnstr="<!--startprint-->"; 
-eprnstr="<!--endprint-->"; 
-prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); 
-prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); 
-window.document.body.innerHTML=prnhtml; 
-window.print(); 
-}
-
 $(function(){
 
     line1 =<%=raw @data.inspect %>
@@ -49,9 +39,7 @@ $(function(){
 
 <!--startprint-->
 <div id="page" >
-  <!-- Wrapper -->
   <div class="wrapper">
-    <!-- Left column/section -->
     <section class="column width6 first">
         <fieldset>
           <legend>问卷结果</legend>
@@ -112,23 +100,15 @@ $(function(){
           <br>
           <br>
 <div id="chart1" style="margin-top:20px; margin-left:20px; width:500px; height:500px;"></div>
-
-          
-
-          
-
         </fieldset>
   </div>
 
-  <!-- End of Wrapper -->
 </div>
-<!--endprint-->
-   
-   
-<!-- Additional plugins go here -->
    <script class="include" type="text/javascript" src="/javascripts/dist/excanvas.min.js"></script>
   <script class="include" type="text/javascript" src="/javascripts/dist/jquery.jqplot.min.js"></script>
   <script class="include" type="text/javascript" src="/javascripts/dist/plugins/jqplot.barRenderer.min.js"></script>
   <script class="include" type="text/javascript" src="/javascripts/dist/plugins/jqplot.pieRenderer.min.js"></script>
   <script class="include" type="text/javascript" src="/javascripts/dist/plugins/jqplot.categoryAxisRenderer.min.js"></script>
   <script class="include" type="text/javascript" src="/javascripts/dist/plugins/jqplot.pointLabels.min.js"></script>
+<!--endprint-->
+   
