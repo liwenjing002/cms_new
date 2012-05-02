@@ -3,7 +3,12 @@ class QuestionBasesController < ApplicationController
   # GET /question_bases.xml
   layout "admin"
   def index
-    @question_bases = QuestionBase.all
+
+     @question = Question.find(params[:question_id])
+    @question_bases = @question.question_base.paginate :page => params[:page]||1,
+                            :per_page=>10,
+              :conditions=>["chind_name like ?",params[:chind_name]? "%#{params[:chind_name]}%":"%"],
+                            :order => 'updated_at DESC'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,12 +19,12 @@ class QuestionBasesController < ApplicationController
   # GET /question_bases/1
   # GET /question_bases/1.xml
   def show
-    @question_basis = QuestionBase.find(params[:id])
+    @question_result = QuestionResult.find_by_question_base_id(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @question_basis }
-    end
+          @data = @question_result.get_result_data
+          format.html {render "../views/question_result_details/result"}
+        end
   end
 
   # GET /question_bases/new

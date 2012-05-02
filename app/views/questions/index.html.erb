@@ -23,6 +23,7 @@
                    <th style="width: 100px;">问卷名称</th>
                    <th style="width: 50px; ">状态</th>
                     <th style="width: 50px; ">开始问卷</th>
+                     <th style="width: 50px; ">查看问卷结果</th>
                    <th style="width: 50px; ">编辑</th>
                    <th style="width: 50px; ">删除</th>
                    
@@ -37,6 +38,8 @@
                               <%if question.flage ==true%>生效<%else%>无效<%end%></td>
                               <td>
                               <%if question.flage ==true%> <%= link_to '开始问卷', "/question_bases/new?question_id=#{question.id}"%><%end%></td>
+                               <td>
+                                 <%= link_to '查看结果', question_bases_path({:question_id=>question.id}),:target=>"_blank" %></td>
                                <td>
                                  <%= link_to '编辑', edit_question_path(question) %></td>
                                     <td>

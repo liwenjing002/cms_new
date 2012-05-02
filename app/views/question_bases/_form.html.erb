@@ -5,7 +5,7 @@ $(document).ready(function(){
   var validator = $("#new_question_base").validate({
 
     rules: {
-
+      "question_base[chind_name]" : "required",
       "question_base[child_sex]" : "required",
       "question_base[child_age]" : "required",
       "question_base[child_guardian]" : "required",
@@ -16,7 +16,7 @@ $(document).ready(function(){
     },
 
     messages: {
-
+      "question_base[chind_name]" : "姓名必填",
       "question_base[child_sex]" : "选择性别",
        "question_base[child_age]" : "选择年龄",
       "question_base[child_guardian]" : "该项不为空",
@@ -77,6 +77,12 @@ $(document).ready(function(){
       <%= simple_form_for(@question_basis) do |f| %>
         <fieldset>
           <legend>填写问卷基本信息</legend>
+                    <p>
+            <label class="required" for="chind_name">孩子姓名</label><br/>
+             <input type="text" name="question_base[chind_name]"
+           id="chind_name"/>
+          </p>
+<br>
           <p>
             <label class="required" for="child_sex">孩子性别</label><br/>
              <input type="radio" name="question_base[child_sex]"
