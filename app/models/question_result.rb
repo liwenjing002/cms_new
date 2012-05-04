@@ -27,19 +27,22 @@ class QuestionResult < ActiveRecord::Base
 		data = Hash.new
 		data_array = Array.new
 		self.question.question_categories.each do |c|
-			data[c.name] = 0
+				data[c.name] = 0
 			if c.question_details.length>0
-			c.question_details.each do |d|
-			res =QuestionResultDetail.find_by_question_detail_id_and_question_result_id(d.id,self.id)
-			
-			if d.count 
-			data[c.name] = (data[c.name]+res.answer_num)
-			else
-			data[c.name] = (data[c.name]-res.answer_num+4)
-			end
-			end
+				c.question_details.each do |d|
+				res =QuestionResultDetail.find_by_question_detail_id_and_question_result_id(d.id,self.id)
+					
+					if d.count 
+					data[c.name] = (data[c.name]+res.answer_num)
+					else
+					data[c.name] = (data[c.name]-res.answer_num+4)
+					end
+				end
 
-			data[c.name] = data[c.name]*100/(c.question_details.length*4)
+				
+				data[c.name+"("+data[c.name].to_s+")"] = data[c.name]*100/(c.question_details.length*4)
+				data.delete(c.name)
+
 			end
 		end
 
