@@ -26,7 +26,7 @@
                 <td><%= question_basis.child_age %></td>
                 <td><%= link_to '查看', question_basis,:target=>"_blank" %></td>
                
-                <td><%= link_to '删除', question_basis, :confirm => 'Are you sure?', :method => :delete %></td>
+                <td><%= link_to '删除', "question_bases/#{question_basis.id}?question_id=#{params[:question_id]}", :confirm => 'Are you sure?', :method => :delete %></td>
               </tr>
             <%end%>
           </tbody>

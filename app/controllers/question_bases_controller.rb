@@ -87,7 +87,7 @@ class QuestionBasesController < ApplicationController
     @question_basis.destroy
 
     respond_to do |format|
-      format.html { redirect_to(question_bases_url) }
+      format.html { redirect_to(question_bases_url({:question_id=>params[:question_id]})) }
       format.xml  { head :ok }
     end
   end
