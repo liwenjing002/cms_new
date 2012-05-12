@@ -97,10 +97,16 @@ class ArticlesController < ApplicationController
   
 
   def add_index
+
+       params[:no_select_id].each do |id|
+        article = Article.find(id)
+        article.is_index =false 
+        article.save
+      end
+
       params[:select_id].each do |id|
         article = Article.find(id)
-        article.is_index =true if params[:is_select] =="1"
-        article.is_index =false if params[:is_select] =="0"
+        article.is_index =true 
         article.save
       end
       respond_to do |format|

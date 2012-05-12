@@ -35,7 +35,7 @@
                  </form>
                <form action='/articles/add_index', method='post' id ="add_index">
           <table class="display stylized" id="example">
-          <input name ="is_select" value="1" type="hidden" id ="is_select">
+        
            <thead>
                  <tr>
                    <th style="width: 100px;"><input type="checkbox" id="select_all" >首页显示</th>
@@ -54,7 +54,7 @@
                  <% @articles.each do |article| %>
                    <tr class="gradeA odd">
                    <td>
-                   <input name="select_id[]" type="hidden" value="<%=article.id%>">
+                   <input name="no_select_id[]" type="hidden" value="<%=article.id%>">
                    <input type="checkbox" name="select_id[]" value="<%=article.id%>"  <%if article.is_index%> checked <%end%>></td>
                     <td>
                        <%= article.small_title %></td>
