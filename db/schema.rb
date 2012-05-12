@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424163442) do
+ActiveRecord::Schema.define(:version => 20120427023813) do
 
   create_table "adds", :force => true do |t|
     t.string   "name"
@@ -44,7 +44,10 @@ ActiveRecord::Schema.define(:version => 20120424163442) do
     t.string   "author"
     t.integer  "page_temp_id"
     t.text     "picture1"
+    t.text     "picture2"
+    t.text     "picture3"
     t.string   "small_title"
+    t.boolean  "is_index"
   end
 
   create_table "ckeditor_assets", :force => true do |t|
