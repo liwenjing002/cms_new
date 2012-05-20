@@ -42,14 +42,13 @@ class QuestionResultDetailsController < ApplicationController
   # POST /question_result_details.xml
   def create
     question_result_detail = QuestionResultDetail.new(params[:question_result_detail])
-
+     question_result_detail.save
      @question_result = question_result_detail.question_result
     respond_to do |format|
         if @question_result.get_question_detail_ids.length ==0
           @data = @question_result.get_result_data
           format.html {render "result"}
           else
-            question_result_detail.save
             format.html {render "question"}
         end
         
