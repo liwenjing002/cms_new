@@ -59,7 +59,6 @@ class QuestionResultDetailsController < ApplicationController
      else
       question_result_detail.update_attributes(params[:question_result_detail])
      end
-     
      @question_result = question_result_detail.question_result
     respond_to do |format|
         if params[:question_num].to_i+1 ==@question_result.get_question_detail_ids.length
