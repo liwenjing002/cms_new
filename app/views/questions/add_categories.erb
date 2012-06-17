@@ -363,7 +363,7 @@ name2 = $("textarea[name='question_detail[name]'][tr="+tr_num3+"]").val()
  e =$("input[name='e_secect'][tr="+tr_num3+"]").attr("value")
 
  que_num = $("input[name='num'][tr="+tr_num3+"]").attr("value");
-    if(que_num =="" || num.match(/\d*/)!= que_num || parseInt(que_num, 10) <=0|| parseInt(que_num, 10)%4 != 0){
+    if(que_num =="" || que_num.match(/\d*/)!= que_num || parseInt(que_num, 10) <=0|| parseInt(que_num, 10)%4 != 0){
         alert("题目分值不正确,分值为数字且为4的倍数")
         return false;
 
