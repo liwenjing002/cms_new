@@ -90,7 +90,11 @@ match '/homes/forums/:id/',
   end
   end
   
-  resources :articles 
+  resources :articles do
+     collection do
+        post :add_index
+      end
+  end
 
 
   get "admin/dashboard"
