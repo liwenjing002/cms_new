@@ -312,8 +312,8 @@ $(".submit_button_question").live("click",function(){
 tr_num2 = $(this).attr("tr")
 c2_id =  $(this).attr("category_id")
 name = $("textarea[name='question_detail[name]'][tr="+tr_num2+"]").val()
-num = $("input[name='num'][tr="+tr_num2+"]").attr("value");
-    if(num =="" || num.match(/\d*/)!= num || parseInt(num, 10) <=0|| parseInt(num, 10)%4 != 0){
+que_num = $("input[name='num'][tr="+tr_num2+"]").attr("value");
+    if(que_num =="" || que_num.match(/\d*/)!= que_num || parseInt(que_num, 10) <=0|| parseInt(que_num, 10)%4 != 0){
        alert("题目分值不正确,分值为数字且为4的倍数")
         return false;
 
@@ -338,7 +338,7 @@ res = "&question_detail[a_secect]="+a +"&question_detail[b_secect]="+b+"&questio
 
       }
 
-      data1 = "question_detail[num]="+num+"&question_detail[question_category_id]="+c2_id+"&question_detail[name]="+name+"&tr_id="+tr_num2+res;
+      data1 = "question_detail[num]="+que_num+"&question_detail[question_category_id]="+c2_id+"&question_detail[name]="+name+"&tr_id="+tr_num2+res;
       //alert(data1)
            jQuery.ajax({                   
                     type: "POST",                                   
@@ -362,8 +362,8 @@ name2 = $("textarea[name='question_detail[name]'][tr="+tr_num3+"]").val()
  d =$("input[name='d_secect'][tr="+tr_num3+"]").attr("value")
  e =$("input[name='e_secect'][tr="+tr_num3+"]").attr("value")
 
- num = $("input[name='num'][tr="+tr_num3+"]").attr("value");
-    if(num =="" || num.match(/\d*/)!= num || parseInt(num, 10) <=0|| parseInt(num, 10)%4 != 0){
+ que_num = $("input[name='num'][tr="+tr_num3+"]").attr("value");
+    if(que_num =="" || num.match(/\d*/)!= que_num || parseInt(que_num, 10) <=0|| parseInt(que_num, 10)%4 != 0){
         alert("题目分值不正确,分值为数字且为4的倍数")
         return false;
 
@@ -380,7 +380,7 @@ res = "&question_detail[a_secect]="+a +"&question_detail[b_secect]="+b+"&questio
         return false;
 
       }
-      data1 = "question_detail[num]="+num+"&question_detail[question_category_id]="+question_category_id2+"&question_detail[name]="+name2+"&tr_id="+tr_num3+res;
+      data1 = "question_detail[num]="+que_num+"&question_detail[question_category_id]="+question_category_id2+"&question_detail[name]="+name2+"&tr_id="+tr_num3+res;
            jQuery.ajax({                   
                     type: "PUT",                                   
                     url: "/question_details/"+id2,
