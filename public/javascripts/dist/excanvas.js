@@ -614,11 +614,11 @@ if (!document.createElement('canvas').getContext) {
     el.style.cssText = cssText;
     canvasElement.appendChild(el);
 
-    var overlayEl = el.cloneNode(false);
+    //var overlayEl = el.cloneNode(false);
     // Use a non transparent background.
-    overlayEl.style.backgroundColor = 'red';
-    overlayEl.style.filter = 'alpha(opacity=0)';
-    canvasElement.appendChild(overlayEl);
+    //overlayEl.style.backgroundColor = 'red';
+    //overlayEl.style.filter = 'alpha(opacity=0)';
+    //canvasElement.appendChild(overlayEl);
 
     this.element_ = el;
     this.arcScaleX_ = 1;

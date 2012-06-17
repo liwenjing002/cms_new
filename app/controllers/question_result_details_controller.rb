@@ -7,7 +7,8 @@ class QuestionResultDetailsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @question_result_details }
+      format.xml  { render :xml =>
+  @question_result_details }
     end
   end
 
@@ -41,14 +42,31 @@ class QuestionResultDetailsController < ApplicationController
   # POST /question_result_details
   # POST /question_result_details.xml
   def create
-    question_result_detail = QuestionResultDetail.new(params[:question_result_detail])
+    if params[:is_last] and params[:is_last] =="1"
+
+      @question_result = QuestionResult.find(params[:question_result_detail][:question_result_id])
+    respond_to do |format|
+            @question_num = params[:question_num].to_i - 1
+            format.html {render "question"}
+           
+    end
+    return 
+    end
+    question_result_detail = QuestionResultDetail.find_by_question_detail_id_and_question_result_id(params[:question_result_detail][:question_detail_id],params[:question_result_detail][:question_result_id])
+     if question_result_detail ==nil
+     question_result_detail = QuestionResultDetail.new(params[:question_result_detail])  
      question_result_detail.save
+     else
+      question_result_detail.update_attributes(params[:question_result_detail])
+     end
+     
      @question_result = question_result_detail.question_result
     respond_to do |format|
-        if @question_result.get_question_detail_ids.length ==0
+        if params[:question_num].to_i+1 ==@question_result.get_question_detail_ids.length
           @data = @question_result.get_result_data
           format.html {render "result"}
           else
+            @question_num = params[:question_num].to_i + 1
             format.html {render "question"}
         end
         

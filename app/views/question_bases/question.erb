@@ -16,7 +16,7 @@ var validator = $("#new_question_result_detail").validate({
 
     errorPlacement: function(error, element) {
 
-       error.insertAfter($("h3"));
+      error.insertAfter($("h3"));
 
     },
 
@@ -45,12 +45,20 @@ var validator = $("#new_question_result_detail").validate({
 });
 
 </script>
-<div id="page" style="height:500px">
-  <%detail_num = @question_result.get_question_detail_ids.choice%>
+
+
+
+   <%#detail_num = @question_result.get_question_detail_ids.choice%>
+   
+   <%total_num = @question_result.get_question_detail_ids.length%>
+   <%now_num = @question_num ? @question_num : 0%>
+   <%detail_num = @question_result.get_question_detail_ids[now_num]%>
+
 <%detail = QuestionDetail.find(detail_num)%>
 <%@question_result_detail = QuestionResultDetail.new%>
 <%@question_result_detail.question_detail_id = detail.id%>
 <%@question_result_detail.question_result_id = @question_result.id%>
+<div id="page" style="height:500px">
   <!-- Wrapper -->
   <div class="wrapper">
     <!-- Left column/section -->
@@ -59,14 +67,15 @@ var validator = $("#new_question_result_detail").validate({
       <h3><%=detail.name%></h3>
 
      <%= simple_form_for(@question_result_detail) do |f| %>
-       <%= f.text_field :question_detail_id,:style=>"display:none" %>
+      <%= f.text_field :question_detail_id,:style=>"display:none" %>
         <%= f.text_field :question_result_id,:style=>"display:none" %>
+             <input name="question_num" value="<%= @question_num ? @question_num : 0%>" style="display:none" />
+        <input name="is_last" id= "is_last" value="0" style="display:none"/>
         <fieldset>
-          <legend>
-            <%if @question_result.get_question_detail_ids.length==1%>
+          <legend> <%if now_num+1 == total_num%>
             当前为最后一题
             <%else%>
-            还有<%=@question_result.get_question_detail_ids.length-1%>题
+            还有<%=total_num - now_num -1%>题
             <%end%></legend>
           <p>
             <input type="radio" name="question_result_detail[answer_num]"
@@ -88,9 +97,13 @@ var validator = $("#new_question_result_detail").validate({
             <input type="radio" name="question_result_detail[answer_num]"
           value="4" /><%=detail.e_secect%>
           </p>
-          <p class="box"><input type="submit" class="btn btn-green big" value="下一题"/>
- 
+          <p class="box">
+            <input type="submit" class="btn btn-green big" value="下一题"/>
+            <%if @question_num and @question_num >0%>
+             <input id = "last" type="submit"  class="cancel btn btn-green big" value="上一题"/>
+          <%end%>
           </p>
+
 
         </fieldset>
 
@@ -99,3 +112,10 @@ var validator = $("#new_question_result_detail").validate({
 
   <!-- End of Wrapper -->
 </div>
+<script type="text/javascript">
+
+$("#last").click(function(){
+
+$("#is_last").attr("value",1);
+})
+</script>

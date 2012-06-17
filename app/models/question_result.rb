@@ -16,9 +16,9 @@ class QuestionResult < ActiveRecord::Base
 			hash_ids.push(c.question_detail.id)
 		end
 
-		hash_ids.each do |id|
-			ids.delete(id)
-		end	
+		# hash_ids.each do |id|
+		# 	ids.delete(id)
+		# end	
 
 		return ids
 	end
@@ -29,18 +29,20 @@ class QuestionResult < ActiveRecord::Base
 		self.question.question_categories.each do |c|
 				data[c.name] = 0
 			if c.question_details.length>0
+				total_cat_num = 0
 				c.question_details.each do |d|
-				res =QuestionResultDetail.find_by_question_detail_id_and_question_result_id(d.id,self.id)
+					total_cat_num = total_cat_num+d.num 
+					res =QuestionResultDetail.find_by_question_detail_id_and_question_result_id(d.id,self.id)
 					
 					if d.count 
-					data[c.name] = (data[c.name]+res.answer_num)
+					data[c.name] = (data[c.name]+res.answer_num*d.num/4)
 					else
-					data[c.name] = (data[c.name]-res.answer_num+4)
+					data[c.name] = (data[c.name]+(4-res.answer_num)*d.num/4)
 					end
 				end
 
 				
-				data[c.name+"("+data[c.name].to_s+")"] = data[c.name]*100/(c.question_details.length*4)
+				data[c.name+"("+data[c.name].to_s+")"] = data[c.name]*100/total_cat_num
 				data.delete(c.name)
 
 			end

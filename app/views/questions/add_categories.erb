@@ -17,7 +17,8 @@
                        <thead>
                          <tr>
                            <th style="width: 200px;">类别名称</th>
-                           <th style="width: 20px; ">分值</th>
+                           <!--<th style="width: 20px; ">分值</th> -->
+                           <th style="width: 20px; "></th>
                            <th style="width: 200px; "></th>
                            <th style="width: 250px; "></th>
                            <th style="width: 50px; "></th>
@@ -32,7 +33,7 @@
                              <input class="show half" id="question_category_id" name="question_category[id]" size="30" type="text" tr="0" style= "display:none">     
                              <input class="show" id="question_category_name" name="question_category[name]" type="text" tr="0"></td>
                            <td>
-
+                            <!--
                              <select class="show" id="question_category_number" name="question_category[number]" tr="1">
                                <option value="20" >20</option>
                                <option value="40">40</option>
@@ -40,6 +41,7 @@
                                  <option value="80">80</option>
                                  <option value="80">100</option>
                              </select>
+                           -->
                            </td>
                            <td>
                              <input  name ="submit_button" type="submit" class="show btn btn-green big submit_button" value="提交" tr="0" ></td>
@@ -62,6 +64,9 @@
                              <textarea  rows="6"  id="question_detail_name" name="question_detail[name]" size="30" tr= "00"></textarea>
                            </td>
                            <td>
+                            题目分值：
+                             <input class="show half" id="num" name="num" size="30"  tr= "00"></br>
+
                              积分反向：
                              <input class="show half" id="count" name="count" size="30" type="checkbox" tr= "00"></br>
                            a:
@@ -92,6 +97,7 @@
                              <input class="show half" id="question_category_id" name="question_category[id]" size="30" type="text" tr="<%=i%>" style="display:none" value="<%=a.id%>">
                                <input class="show" id="question_category_name" name="question_category[name]"  type="text" tr="<%=i%>"  value="<%=a.name%>"></td>
                                <td>
+                                <!--
                                  <select class="show" id="question_category_number" name="question_category[number]" tr="<%=i%>
                                    ">
                                    <option value="20" <%if a.number==20%>
@@ -105,6 +111,7 @@
                                         <option value="100" <%if a.number==100%>   selected
                                        <%end%>>100</option>
                                      </select>
+                                   -->
                                    </td>
                                    <td>
                                      <input  name ="submit_button" <%if a.id !=nil%>     
@@ -144,7 +151,10 @@
                                                      <input class="show half" id="question_detail_id" name="question_detail[id]" size="30" type="text" tr= "q<%=b.id%>" style="display:none" value= "<%=b.id%>">     
                                                      题目：<br>
                                                      <textarea  rows="6"  id="question_detail_name" name="question_detail[name]" size="30" tr= "q<%=b.id%>"><%=b.name%></textarea></td>
-                                                   <td>积分反向：</br>
+                                                   <td>
+                                                    题目分值：</br>
+                                                     <input  id="num" name="num" size="30"  tr= "q<%=b.id%>" value="<%=b.num%>"></br>
+                                                    积分反向：</br>
                                                      <input <%if b.count==false %> checked="checked" <%end%> class="show half" id="count" name="count" size="30" type="checkbox" tr= "q<%=b.id%>"></br>
                                                    a:
                                                    <input  name ="a_secect" type="text"  value="<%=b.a_secect%>" tr= "q<%=b.id%>" ></br>
@@ -177,7 +187,7 @@
                                                    <input class="show half" id="question_category_id" name="question_category[id]" size="30" style="display:none" tr="<%=@question.question_categories.length+1%>" style="display:none">
                                                    <input class="show " id="question_category_name" name="question_category[name]"  type="text" tr="<%=@question.question_categories.length+1%>"></td>
                                                  <td>
-
+                                                  <!--
                                                    <select class="show" id="question_category_number" name="question_category[number]" tr="<%=@question.question_categories.length+1%>
                                                      ">
                                                       <option value="20" >20</option>
@@ -185,6 +195,7 @@
                                                       <option value="60">60</option>
                                                        <option value="80">80</option>
                                                        <option value="80">100</option>
+                                                    -->
                                                      <td>
                                                        <input  name ="submit_button" type="submit" class="show btn btn-green big submit_button" value="提交" tr="<%=@question.question_categories.length+1%>"></td>
                                                      <td>
@@ -301,7 +312,12 @@ $(".submit_button_question").live("click",function(){
 tr_num2 = $(this).attr("tr")
 c2_id =  $(this).attr("category_id")
 name = $("textarea[name='question_detail[name]'][tr="+tr_num2+"]").val()
+num = $("input[name='num'][tr="+tr_num2+"]").attr("value");
+    if(num =="" || num.match(/\d*/)!= num || parseInt(num, 10) <=0|| parseInt(num, 10)%4 != 0){
+       alert("题目分值不正确,分值为数字且为4的倍数")
+        return false;
 
+      }
  a =$("input[name='a_secect'][tr="+tr_num2+"]").attr("value")
  b =$("input[name='b_secect'][tr="+tr_num2+"]").attr("value")
  c =$("input[name='c_secect'][tr="+tr_num2+"]").attr("value")
@@ -321,7 +337,9 @@ res = "&question_detail[a_secect]="+a +"&question_detail[b_secect]="+b+"&questio
         return false;
 
       }
-      data1 = "question_detail[question_category_id]="+c2_id+"&question_detail[name]="+name+"&tr_id="+tr_num2+res;
+
+      data1 = "question_detail[num]="+num+"&question_detail[question_category_id]="+c2_id+"&question_detail[name]="+name+"&tr_id="+tr_num2+res;
+      //alert(data1)
            jQuery.ajax({                   
                     type: "POST",                                   
                     url: "/question_details",
@@ -343,8 +361,15 @@ name2 = $("textarea[name='question_detail[name]'][tr="+tr_num3+"]").val()
  c =$("input[name='c_secect'][tr="+tr_num3+"]").attr("value")
  d =$("input[name='d_secect'][tr="+tr_num3+"]").attr("value")
  e =$("input[name='e_secect'][tr="+tr_num3+"]").attr("value")
+
+ num = $("input[name='num'][tr="+tr_num3+"]").attr("value");
+    if(num =="" || num.match(/\d*/)!= num || parseInt(num, 10) <=0|| parseInt(num, 10)%4 != 0){
+        alert("题目分值不正确,分值为数字且为4的倍数")
+        return false;
+
+      }
  count_boolean2 =$("input[name='count'][tr="+tr_num3+"]").attr("checked")
-  if(count_boolean2=="on"){
+  if(count_boolean2){
 count_boolean2 =0
  }else{
 count_boolean2=1
@@ -355,7 +380,7 @@ res = "&question_detail[a_secect]="+a +"&question_detail[b_secect]="+b+"&questio
         return false;
 
       }
-      data1 = "question_detail[id]="+id2+"&question_detail[question_category_id]="+question_category_id2+"&question_detail[name]="+name2+"&tr_id="+tr_num3+res;
+      data1 = "question_detail[num]="+num+"&question_detail[question_category_id]="+question_category_id2+"&question_detail[name]="+name2+"&tr_id="+tr_num3+res;
            jQuery.ajax({                   
                     type: "PUT",                                   
                     url: "/question_details/"+id2,
