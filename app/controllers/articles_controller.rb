@@ -95,5 +95,23 @@ class ArticlesController < ApplicationController
     end
   end
   
+
+  def add_index
+
+       params[:no_select_id].each do |id|
+        article = Article.find(id)
+        article.is_index =false 
+        article.save
+      end
+
+      params[:select_id].each do |id|
+        article = Article.find(id)
+        article.is_index =true 
+        article.save
+      end
+      respond_to do |format|
+        format.html { redirect_to(articles_url) }
+    end
+  end
   
 end
