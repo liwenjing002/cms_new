@@ -17,7 +17,7 @@
                        <thead>
                          <tr>
                            <th style="width: 200px;">类别名称</th>
-                           <!--<th style="width: 20px; ">分值</th> -->
+                           <th style="width: 20px; ">类别分值</th>
                            <th style="width: 20px; "></th>
                            <th style="width: 200px; "></th>
                            <th style="width: 250px; "></th>
@@ -33,15 +33,7 @@
                              <input class="show half" id="question_category_id" name="question_category[id]" size="30" type="text" tr="0" style= "display:none">     
                              <input class="show" id="question_category_name" name="question_category[name]" type="text" tr="0"></td>
                            <td>
-                            <!--
-                             <select class="show" id="question_category_number" name="question_category[number]" tr="1">
-                               <option value="20" >20</option>
-                               <option value="40">40</option>
-                                <option value="60">60</option>
-                                 <option value="80">80</option>
-                                 <option value="80">100</option>
-                             </select>
-                           -->
+                           <span style="color:red" class="cat_num" tr =1></span>
                            </td>
                            <td>
                              <input  name ="submit_button" type="submit" class="show btn btn-green big submit_button" value="提交" tr="0" ></td>
@@ -65,7 +57,11 @@
                            </td>
                            <td>
                             题目分值：
-                             <input class="show half" id="num" name="num" size="30"  tr= "00"></br>
+                              <select id="num" name="num"  tr= "00">
+                              <option value="4">0-4</option>
+                              <option value="5">1-5</option>
+                              </select>
+                              </br>
 
                              积分反向：
                              <input class="show half" id="count" name="count" size="30" type="checkbox" tr= "00"></br>
@@ -153,7 +149,11 @@
                                                      <textarea  rows="6"  id="question_detail_name" name="question_detail[name]" size="30" tr= "q<%=b.id%>"><%=b.name%></textarea></td>
                                                    <td>
                                                     题目分值：</br>
-                                                     <input  id="num" name="num" size="30"  tr= "q<%=b.id%>" value="<%=b.num%>"></br>
+                                                                      <select id="num" name="num"  tr= "q<%=b.id%>">>
+                                                                      <option value="4" <%if b.num ==4%> selected <%end%>>0-4</option>
+                                                                      <option value="5" <%if b.num ==4%> selected <%end%>>1-5</option>
+                                                                      </select>
+                                                                       </br>
                                                     积分反向：</br>
                                                      <input <%if b.count==false %> checked="checked" <%end%> class="show half" id="count" name="count" size="30" type="checkbox" tr= "q<%=b.id%>"></br>
                                                    a:
