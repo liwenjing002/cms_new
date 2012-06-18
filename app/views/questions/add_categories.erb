@@ -95,7 +95,8 @@
                                <td>
                                <%total_ca_num = 0%>
                                  <%a.question_details.each do |b| %>
-                                 <%total_ca_num = total_ca_num+b.num%>
+                                 <%num_v = b.num?b.num:0%>
+                                 <%total_ca_num = total_ca_num+num_v%>
                                  <%end%>
                                   <span style="color:red" class="cat_num" tr="<%=a.id%>"><%=total_ca_num%></span>
                                 <!--
