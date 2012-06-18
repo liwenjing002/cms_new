@@ -56,9 +56,9 @@ var validator = $("#new_question_result_detail").validate({
 
 <%detail = QuestionDetail.find(detail_num)%>
 
-<% @question_result_detail = QuestionResultDetail.find_by_question_detail_id_and_question_result_id(detail.id,@question_result.id)%>
+<% @question_result_detail_now = QuestionResultDetail.find_by_question_detail_id_and_question_result_id(detail.id,@question_result.id)%>
 
-<%@question_result_detail = QuestionResultDetail.new if @question_result_detail==nil%>
+<%@question_result_detail = QuestionResultDetail.new %>
 <%@question_result_detail.question_detail_id = detail.id%>
 <%@question_result_detail.question_result_id = @question_result.id%>
 <div id="page" style="height:500px">
@@ -82,23 +82,23 @@ var validator = $("#new_question_result_detail").validate({
             <%end%></legend>
           <p>
             <input type="radio" name="question_result_detail[answer_num]"
-          value="0" <%if @question_result_detail.answer_num==0%> checked<%end%>/><%=detail.a_secect%>
+          value="0" <%if @question_result_detail_now.answer_num==0%> checked<%end%>/><%=detail.a_secect%>
           </p>
           <p>
             <input type="radio" name="question_result_detail[answer_num]"
-          value="1" <%if @question_result_detail.answer_num==1%> checked<%end%>/><%=detail.b_secect%>
+          value="1" <%if @question_result_detail_now.answer_num==1%> checked<%end%>/><%=detail.b_secect%>
           </p>
           <p>
             <input type="radio" name="question_result_detail[answer_num]"
-          value="2" <%if @question_result_detail.answer_num==2%> checked<%end%>/><%=detail.c_secect%>
+          value="2" <%if @question_result_detail_now.answer_num==2%> checked<%end%>/><%=detail.c_secect%>
           </p>
           <p>
             <input type="radio" name="question_result_detail[answer_num]"
-          value="3" <%if @question_result_detail.answer_num==3%> checked<%end%>/><%=detail.d_secect%>
+          value="3" <%if @question_result_detail_now.answer_num==3%> checked<%end%>/><%=detail.d_secect%>
           </p>
           <p>
             <input type="radio" name="question_result_detail[answer_num]"
-          value="4" <%if @question_result_detail.answer_num==5%> checked<%end%>/><%=detail.e_secect%>
+          value="4" <%if @question_result_detail_now.answer_num==5%> checked<%end%>/><%=detail.e_secect%>
           </p>
           <p class="box">
            <%if @question_num and @question_num >0%>
