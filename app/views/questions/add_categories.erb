@@ -312,8 +312,8 @@ $(".submit_button_question").live("click",function(){
 tr_num2 = $(this).attr("tr")
 c2_id =  $(this).attr("category_id")
 name = $("textarea[name='question_detail[name]'][tr="+tr_num2+"]").val()
-que_num = $("input[name='num'][tr="+tr_num2+"]").attr("value");
-    if(que_num =="" || que_num.match(/\d*/)!= que_num || parseInt(que_num, 10) <=0|| parseInt(que_num, 10)%4 != 0){
+que_num = $("select[name='num'][tr="+tr_num2+"]").attr("value");
+    if(que_num =="" || que_num.match(/\d*/)!= que_num || parseInt(que_num, 10) <=0){
        alert("题目分值不正确,分值为数字且为4的倍数")
         return false;
 
@@ -362,8 +362,8 @@ name2 = $("textarea[name='question_detail[name]'][tr="+tr_num3+"]").val()
  d =$("input[name='d_secect'][tr="+tr_num3+"]").attr("value")
  e =$("input[name='e_secect'][tr="+tr_num3+"]").attr("value")
 
- que_num = $("input[name='num'][tr="+tr_num3+"]").attr("value");
-    if(que_num =="" || que_num.match(/\d*/)!= que_num || parseInt(que_num, 10) <=0|| parseInt(que_num, 10)%4 != 0){
+ que_num = $("select[name='num'][tr="+tr_num3+"]").attr("value");
+    if(que_num =="" || que_num.match(/\d*/)!= que_num || parseInt(que_num, 10) <=0){
         alert("题目分值不正确,分值为数字且为4的倍数")
         return false;
 
