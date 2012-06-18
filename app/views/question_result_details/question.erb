@@ -57,7 +57,7 @@ var validator = $("#new_question_result_detail").validate({
 <%detail = QuestionDetail.find(detail_num)%>
 
 <% @question_result_detail_now = QuestionResultDetail.find_by_question_detail_id_and_question_result_id(detail.id,@question_result.id)%>
-
+<%@question_result_detail_now = QuestionResultDetail.new if @question_result_detail_now==nil%>
 <%@question_result_detail = QuestionResultDetail.new %>
 <%@question_result_detail.question_detail_id = detail.id%>
 <%@question_result_detail.question_result_id = @question_result.id%>
