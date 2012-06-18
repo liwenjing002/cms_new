@@ -13,6 +13,7 @@ $("input[tr=<%=params[:tr_id]%>][name='add_button']").show();
   var clonedtr = $("#0").clone();
   	clonedtr.show();	
       clonedtr.attr("id","<%=params[:tr_id].to_i+1%>")
+       clonedtr.find(".cat_num").attr("tr","<%=params[:tr_id].to_i+1%>");
         clonedtr.find("input").each( function(index, element)
                            {
                               $(element).attr("tr","<%=params[:tr_id].to_i+1%>")
