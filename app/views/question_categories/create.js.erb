@@ -1,4 +1,5 @@
 $("input[tr=<%=params[:tr_id]%>][name='question_category[id]']").attr("value","<%=@question_category.id%>");
+$("span[tr=<%=params[:tr_id]%>][class='cat_num']").attr("tr","<%=@question_category.id%>");
 
 $("input[tr=<%=params[:tr_id]%>][name='submit_button']").hide();
 
