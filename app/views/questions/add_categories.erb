@@ -17,7 +17,7 @@
                        <thead>
                          <tr>
                            <th style="width: 200px;">类别名称</th>
-                           <th style="width: 20px; ">类别分值</th>
+                           <th style="width: 20px; ">分值</th>
                            <th style="width: 20px; "></th>
                            <th style="width: 200px; "></th>
                            <th style="width: 250px; "></th>
@@ -93,6 +93,11 @@
                              <input class="show half" id="question_category_id" name="question_category[id]" size="30" type="text" tr="<%=i%>" style="display:none" value="<%=a.id%>">
                                <input class="show" id="question_category_name" name="question_category[name]"  type="text" tr="<%=i%>"  value="<%=a.name%>"></td>
                                <td>
+                               <%total_ca_num = 0%>
+                                 <%a.question_details.each do |b| %>
+                                 <%total_ca_num = total_ca_num+b.num%>
+                                 <%end%>
+                                  <span style="color:red" class="cat_num" tr="<%=i%>">total_ca_num</span>
                                 <!--
                                  <select class="show" id="question_category_number" name="question_category[number]" tr="<%=i%>
                                    ">
@@ -303,6 +308,7 @@ $(".add_button").live("click",function(){
 
                           );
   clonedtr.find("textarea").attr("tr","p"+ tr_num)    
+   clonedtr.find("select").attr("tr","p"+ tr_num)    
 
 })
 
