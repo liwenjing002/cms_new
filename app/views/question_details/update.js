@@ -4,4 +4,5 @@
 <%end%>
 
 $("span[tr=<%=params[:tr_id]%>][class='cat_num']").attr("value","<%=total_ca_num%>");
+alert("<%=total_ca_num%>")
 alert("题目保存成功")
