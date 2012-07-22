@@ -2,7 +2,18 @@
 
 <%= javascript_include_tag "prototype" %>﻿
     <script>
+
       KindEditor.ready(function(K) {
+
+
+	editor1 =  K.create('#kindeditor', {
+	 width : '700px',
+                uallowFileManager : true, 
+allowFileManager : true, 
+          uploadJson : '/kindeditor/upload',
+          fileManagerJson : '/kindeditor/images_list'
+        });
+
         var editor = K.editor({
           allowFileManager : true, 
           uploadJson : '/kindeditor/upload',
