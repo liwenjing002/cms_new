@@ -108,7 +108,7 @@ class ArticlesController < ApplicationController
         article = Article.find(id)
         article.is_index =true 
         article.save
-      end
+      end if params[:select_id]
       respond_to do |format|
         format.html { redirect_to(articles_url) }
     end
