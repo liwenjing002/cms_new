@@ -17,7 +17,7 @@
                        <thead>
                          <tr>
                            <th style="width: 200px;">类别名称</th>
-                           <!--<th style="width: 20px; ">分值</th> -->
+                           <th style="width: 20px; ">分值</th>
                            <th style="width: 20px; "></th>
                            <th style="width: 200px; "></th>
                            <th style="width: 250px; "></th>
@@ -33,15 +33,7 @@
                              <input class="show half" id="question_category_id" name="question_category[id]" size="30" type="text" tr="0" style= "display:none">     
                              <input class="show" id="question_category_name" name="question_category[name]" type="text" tr="0"></td>
                            <td>
-                            <!--
-                             <select class="show" id="question_category_number" name="question_category[number]" tr="1">
-                               <option value="20" >20</option>
-                               <option value="40">40</option>
-                                <option value="60">60</option>
-                                 <option value="80">80</option>
-                                 <option value="80">100</option>
-                             </select>
-                           -->
+                           <span style="color:red" class="cat_num" tr ="0"></span>
                            </td>
                            <td>
                              <input  name ="submit_button" type="submit" class="show btn btn-green big submit_button" value="提交" tr="0" ></td>
@@ -65,7 +57,11 @@
                            </td>
                            <td>
                             题目分值：
-                             <input class="show half" id="num" name="num" size="30"  tr= "00"></br>
+                              <select id="num" name="num"  tr= "00">
+                              <option value="4">0-4</option>
+                              <option value="5">1-5</option>
+                              </select>
+                              </br>
 
                              积分反向：
                              <input class="show half" id="count" name="count" size="30" type="checkbox" tr= "00"></br>
@@ -97,6 +93,12 @@
                              <input class="show half" id="question_category_id" name="question_category[id]" size="30" type="text" tr="<%=i%>" style="display:none" value="<%=a.id%>">
                                <input class="show" id="question_category_name" name="question_category[name]"  type="text" tr="<%=i%>"  value="<%=a.name%>"></td>
                                <td>
+                               <%total_ca_num = 0%>
+                                 <%a.question_details.each do |b| %>
+                                 <%num_v = (b.num ? b.num : 0)%>
+                                 <%total_ca_num = total_ca_num+num_v%>
+                                 <%end%>
+                                  <span style="color:red" class="cat_num" tr="<%=a.id%>"><%=total_ca_num%></span>
                                 <!--
                                  <select class="show" id="question_category_number" name="question_category[number]" tr="<%=i%>
                                    ">
@@ -134,7 +136,7 @@
                                                  <input  name ="add_button" <%if a.id ==nil%>     
                                                  style= "display:none"
                                                  <%end%>
-                                                   type="submit" class="show btn btn-green big add_button" value="添加问题" tr="<%=i%>"></td>
+                                                   type="submit" class="show btn btn-green big add_button" value="添加问题" tr="<%=i%>" category_id ="<%=a.id%>"></td>
 
                                                  </div>
                                                </tr>
@@ -153,7 +155,11 @@
                                                      <textarea  rows="6"  id="question_detail_name" name="question_detail[name]" size="30" tr= "q<%=b.id%>"><%=b.name%></textarea></td>
                                                    <td>
                                                     题目分值：</br>
-                                                     <input  id="num" name="num" size="30"  tr= "q<%=b.id%>" value="<%=b.num%>"></br>
+                                                                      <select id="num" name="num"  tr= "q<%=b.id%>">>
+                                                                      <option value="4" <%if b.num ==4%> selected <%end%>>0-4</option>
+                                                                      <option value="5" <%if b.num ==5%> selected <%end%>>1-5</option>
+                                                                      </select>
+                                                                       </br>
                                                     积分反向：</br>
                                                      <input <%if b.count==false %> checked="checked" <%end%> class="show half" id="count" name="count" size="30" type="checkbox" tr= "q<%=b.id%>"></br>
                                                    a:
@@ -187,6 +193,7 @@
                                                    <input class="show half" id="question_category_id" name="question_category[id]" size="30" style="display:none" tr="<%=@question.question_categories.length+1%>" style="display:none">
                                                    <input class="show " id="question_category_name" name="question_category[name]"  type="text" tr="<%=@question.question_categories.length+1%>"></td>
                                                  <td>
+                                                 <span style="color:red" class="cat_num" tr ="<%=@question.question_categories.length+1%>"></span>
                                                   <!--
                                                    <select class="show" id="question_category_number" name="question_category[number]" tr="<%=@question.question_categories.length+1%>
                                                      ">
@@ -303,6 +310,7 @@ $(".add_button").live("click",function(){
 
                           );
   clonedtr.find("textarea").attr("tr","p"+ tr_num)    
+   clonedtr.find("select").attr("tr","p"+ tr_num)    
 
 })
 
@@ -312,8 +320,8 @@ $(".submit_button_question").live("click",function(){
 tr_num2 = $(this).attr("tr")
 c2_id =  $(this).attr("category_id")
 name = $("textarea[name='question_detail[name]'][tr="+tr_num2+"]").val()
-num = $("input[name='num'][tr="+tr_num2+"]").attr("value");
-    if(num =="" || num.match(/\d*/)!= num || parseInt(num, 10) <=0|| parseInt(num, 10)%4 != 0){
+que_num = $("select[name='num'][tr="+tr_num2+"]").attr("value");
+    if(que_num =="" || que_num.match(/\d*/)!= que_num || parseInt(que_num, 10) <=0){
        alert("题目分值不正确,分值为数字且为4的倍数")
         return false;
 
@@ -338,7 +346,7 @@ res = "&question_detail[a_secect]="+a +"&question_detail[b_secect]="+b+"&questio
 
       }
 
-      data1 = "question_detail[num]="+num+"&question_detail[question_category_id]="+c2_id+"&question_detail[name]="+name+"&tr_id="+tr_num2+res;
+      data1 = "question_detail[num]="+que_num+"&question_detail[question_category_id]="+c2_id+"&question_detail[name]="+name+"&tr_id="+tr_num2+res;
       //alert(data1)
            jQuery.ajax({                   
                     type: "POST",                                   
@@ -362,8 +370,8 @@ name2 = $("textarea[name='question_detail[name]'][tr="+tr_num3+"]").val()
  d =$("input[name='d_secect'][tr="+tr_num3+"]").attr("value")
  e =$("input[name='e_secect'][tr="+tr_num3+"]").attr("value")
 
- num = $("input[name='num'][tr="+tr_num3+"]").attr("value");
-    if(num =="" || num.match(/\d*/)!= num || parseInt(num, 10) <=0|| parseInt(num, 10)%4 != 0){
+ que_num = $("select[name='num'][tr="+tr_num3+"]").attr("value");
+    if(que_num =="" || que_num.match(/\d*/)!= que_num || parseInt(que_num, 10) <=0){
         alert("题目分值不正确,分值为数字且为4的倍数")
         return false;
 
@@ -380,7 +388,7 @@ res = "&question_detail[a_secect]="+a +"&question_detail[b_secect]="+b+"&questio
         return false;
 
       }
-      data1 = "question_detail[num]="+num+"&question_detail[question_category_id]="+question_category_id2+"&question_detail[name]="+name2+"&tr_id="+tr_num3+res;
+      data1 = "question_detail[num]="+que_num+"&question_detail[question_category_id]="+question_category_id2+"&question_detail[name]="+name2+"&tr_id="+tr_num3+res;
            jQuery.ajax({                   
                     type: "PUT",                                   
                     url: "/question_details/"+id2,

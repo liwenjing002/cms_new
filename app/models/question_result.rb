@@ -35,9 +35,17 @@ class QuestionResult < ActiveRecord::Base
 					res =QuestionResultDetail.find_by_question_detail_id_and_question_result_id(d.id,self.id)
 					
 					if d.count 
-					data[c.name] = (data[c.name]+res.answer_num*d.num/4)
+					   if d.num =4
+					  data[c.name] = (data[c.name]+res.answer_num)
+					  else
+					  data[c.name] = (data[c.name]+res.answer_num+1)
+					  end
 					else
-					data[c.name] = (data[c.name]+(4-res.answer_num)*d.num/4)
+					 if d.num =4
+					  data[c.name] = (data[c.name]+4-res.answer_num)
+					  else
+					  data[c.name] = (data[c.name]+5-res.answer_num)
+					  end
 					end
 				end
 
