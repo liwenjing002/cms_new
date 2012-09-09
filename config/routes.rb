@@ -44,7 +44,14 @@ match '/homes/forums/:id/:page',
   :controller => 'homes',  
   :action => 'articles',  
   :requirements => {:id=>/\d+/},  
-  :id => nil   
+  :id => nil  
+
+
+ match '/homes/courses/:id',  
+  :controller => 'homes',  
+  :action => 'courses',  
+  :requirements => {:id=>/\d+/},  
+  :id => nil    
 
 match '/homes/forums/:id/',  
   :controller => 'homes',  
