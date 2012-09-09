@@ -40,7 +40,7 @@
                                 <br/>
                                 <%= f.cktext_area   :desc,:input_html =>{},:language=>"zh-cn"%></p>
                                    <label for="productdesc">页面模版</label><br/>
-            <%= select( :course,:page_temp_id, PageTemp.find(:all,:conditions=>["temp_type='文章' and is_acticity=true"]).collect {|p| [ p.name, p.id ] }) %>
+            <%= select( :course,:page_temp_id, PageTemp.find(:all,:conditions=>["temp_type='课程' and is_acticity=true"]).collect {|p| [ p.name, p.id ] }) %>
                                 <p class="box">
                                   <input type="submit" class="btn btn-green big" value="提交">
                                   <%= link_to '返回', courses_path,:class=>
