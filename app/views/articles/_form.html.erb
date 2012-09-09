@@ -2,7 +2,18 @@
 
 <%= javascript_include_tag "prototype" %>﻿
     <script>
+
       KindEditor.ready(function(K) {
+
+
+  editor1 =  K.create('#kindeditor', {
+   width : '700px',
+                uallowFileManager : true, 
+allowFileManager : true, 
+          uploadJson : '/kindeditor/upload',
+          fileManagerJson : '/kindeditor/images_list'
+        });
+
         var editor = K.editor({
           allowFileManager : true, 
           uploadJson : '/kindeditor/upload',
@@ -30,7 +41,7 @@
   <!-- Wrapper -->
   <div class="wrapper">
     <!-- Left column/section -->
-    <section class="column width6 first">					
+    <section class="column width6 first">         
 
 
       <h3>新增文章</h3>
@@ -66,11 +77,11 @@
             <label for="productdesc">正文</label><br/>
              <%= f.text_area :context,:id => "kindeditor" %>
             <%#= f.cktext_area   :context,:input_html => {},:language=>"zh-cn"%>
-		
+
 
           </p>
-		  
-		   <p>
+
+       <p>
           <%if @article.picture1 and @article.picture1 != ""%>
           <%= image_tag(@article.picture1,:width=>100)%>
           <%end%>
@@ -110,6 +121,3 @@
 
   </div>
 </div>
-
-
-
