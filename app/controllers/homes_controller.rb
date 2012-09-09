@@ -42,6 +42,7 @@ class HomesController < ApplicationController
 
     def courses
     @course = Course.find(params[:id])
+    @forum =  Forum.find_by_code("kc")
   end
 
 def read
