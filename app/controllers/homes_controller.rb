@@ -39,6 +39,11 @@ class HomesController < ApplicationController
     @article.save
   end
 
+
+    def courses
+    @course = Course.find(params[:id])
+  end
+
 def read
   @article = Article.find(params[:id])
     if @article.read_num

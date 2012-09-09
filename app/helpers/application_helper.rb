@@ -106,6 +106,9 @@ end
       elsif  request.parameters[:action] == "articles"
         @temp_body = @article.page_temp
          @temp_body =  PageTemp.find_by_temp_type_and_is_acticity("文章",true)  if  @temp_body==nil
+      elsif  request.parameters[:action] == "courses"
+        @temp_body = @article.page_temp
+        @temp_body =  PageTemp.find_by_temp_type_and_is_acticity("课程",true)  if  @temp_body==nil
       end   
        return ERB.new(@temp_body.content).result(self.send( :binding ))  if @temp_body
     end
