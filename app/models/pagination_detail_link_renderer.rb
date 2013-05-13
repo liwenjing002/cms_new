@@ -1,4 +1,4 @@
-class PaginationDetailLinkRenderer < WillPaginate::LinkRenderer  
+class PaginationDetailLinkRenderer < WillPaginate::ViewHelpers::LinkRenderer  
   
  
 
