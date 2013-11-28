@@ -56,11 +56,11 @@
                    <td>
                    <input name="no_select_id[]" type="hidden" value="<%=article.id%>">
                    <input type="checkbox" name="select_id[]" value="<%=article.id%>"  <%if article.is_index%> checked <%end%>></td>
-                    <td>
-                       <%= article.small_title %></td>
-                     <td>
-                       <%= article.title %></td>
-                       <td>
+                    <td itle="<%=article.small_title%>">
+                       <%= strip_html article.small_title,5,"" %></td>
+                     <td title="<%=article.title%>">
+                       <%= strip_html article.title,5 ,"" %></td>
+                       <td >
                          <%= article.first_forum.name if article.first_forum%></td>
                          <td>
                            <%= article.forum.name if article.forum%></td>
