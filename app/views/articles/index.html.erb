@@ -56,7 +56,7 @@
                    <td>
                    <input name="no_select_id[]" type="hidden" value="<%=article.id%>">
                    <input type="checkbox" name="select_id[]" value="<%=article.id%>"  <%if article.is_index%> checked <%end%>></td>
-                    <td itle="<%=article.small_title%>">
+                    <td title="<%=article.small_title%>">
                        <%= strip_html article.small_title,5,"" %></td>
                      <td title="<%=article.title%>">
                        <%= strip_html article.title,5 ,"" %></td>
