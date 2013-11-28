@@ -74,7 +74,7 @@ allowFileManager : true,
                               <p>
                                 <label for="productdesc">正文</label>
                                 <br/>
-                                <%= f.text_area :context,:id => "kindeditor" %></p>
+                                <%= f.text_area :desc,:id => "kindeditor" %></p>
                                    <label for="productdesc">页面模版</label><br/>
             <%= select( :course,:page_temp_id, PageTemp.find(:all,:conditions=>["temp_type='课程' and is_acticity=true"]).collect {|p| [ p.name, p.id ] }) %>
                                 <p class="box">
