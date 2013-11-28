@@ -1,5 +1,41 @@
-<%= javascript_include_tag :ckeditor %>
-  <%= javascript_include_tag "prototype" %>
+<%#= javascript_include_tag :ckeditor %>
+
+<%= javascript_include_tag "prototype" %>﻿
+    <script>
+
+      KindEditor.ready(function(K) {
+
+
+  editor1 =  K.create('#kindeditor', {
+   width : '700px',
+                uallowFileManager : true, 
+allowFileManager : true, 
+          uploadJson : '/kindeditor/upload',
+          fileManagerJson : '/kindeditor/images_list'
+        });
+
+        var editor = K.editor({
+          allowFileManager : true, 
+          uploadJson : '/kindeditor/upload',
+          fileManagerJson : '/kindeditor/images_list'
+        });
+        K('#image').click(function() {
+          editor.loadPlugin('image', function() {
+            editor.plugin.imageDialog({
+              imageUrl : K('#url').val(),
+              clickFn : function(url, title, width, height, border, align) {
+                K('#url').val(url);
+                editor.hideDialog();
+              }
+            });
+          });
+        });
+
+
+
+      });
+    </script>
+
 
     <div id="page" style="min-height: 800px">
       <!-- Wrapper -->
@@ -38,7 +74,7 @@
                               <p>
                                 <label for="productdesc">正文</label>
                                 <br/>
-                                <%= f.cktext_area   :desc,:input_html =>{},:language=>"zh-cn"%></p>
+                                <%= f.text_area :context,:id => "kindeditor" %></p>
                                    <label for="productdesc">页面模版</label><br/>
             <%= select( :course,:page_temp_id, PageTemp.find(:all,:conditions=>["temp_type='课程' and is_acticity=true"]).collect {|p| [ p.name, p.id ] }) %>
                                 <p class="box">
