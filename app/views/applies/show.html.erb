@@ -1,4 +1,3 @@
-
 <div id="page" style="height:500px">
   <!-- Wrapper -->
   <div class="wrapper">
@@ -16,6 +15,10 @@
           <%= @apply.name %>
         </p>
 
+ <p>
+          <label class="required" for="name">报名课程</label><br/>
+          <%= @apply.course.name %>
+        </p>
         <p>
           <label class="required" for="name">邮箱</label><br/>
           <%= @apply.email %>
