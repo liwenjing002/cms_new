@@ -1,4 +1,3 @@
-
 <div id="content" class='xcz-page  clearfix'>
 <%if create_html_left%>
        <%= raw create_html_left  %>
@@ -38,6 +37,13 @@
           <p>
             <label class="required" for="name">姓名</label><br/>
             <%= f.text_field :name,:class=>"half" %>
+          </p>
+
+	  <p>
+
+
+             <label for="productdesc">报名课程</label><br/>
+            <%= select( :apply,:course_id, Course.find(:all).collect {|p| [ p.name, p.id ] }) %>
           </p>
 
           <p>
